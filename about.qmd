@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "MA [46]15 Final Project: Group 10"
 # image: profile.jpg
 about:
   template: jolla
@@ -19,16 +19,14 @@ about:
 
 This comes from the file `about.qmd`.
 
-This is a website for the final project for MA[46]15 Data Science with R by Team TEAMNAME.
+This is a website for the final project for MA[46]15 Data Science with R by Team Group 10.
 The members of this team are below.
 
-## Chang Liu
+Hakob Janesian -  https://github.com/HakobJanesian
 
-Luis is a Ph.D. student in Stats and is the Teaching Fellow for the course.
+Minjun Kim - https://github.com/minjunk3
 
-## Dan Sussman
-
-Dan is a professor in the Math/Stat department and is the instructor for the course.
+Zhuolei Chen - https://github.com/Alex030214
 
 <!-- Please leave in the information below -->
 
