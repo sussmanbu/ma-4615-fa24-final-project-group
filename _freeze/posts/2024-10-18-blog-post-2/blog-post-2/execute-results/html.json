@@ -1,0 +1,17 @@
+{
+  "hash": "a13dc3d0d933299ba10e759521166bf7",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Blog Post 2\"\nsubtitle: \"Progress Discussion and Dataset Investigating\"\ndescription:  |\n  Data Link:\n  https://www.kaggle.com/datasets/konradb/prison-population-in-the-us?select=populations_states.csv\nauthor: \"Group 10\"\ndate: \"2024-10-18\"\ncategories: [Blog Post 2]\ndate-modified: \"2024-10-18\"\ndraft: FALSE\n---\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\ndf = read.csv(\"admissions_releases_states.csv\")\nstr(df)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n'data.frame':\t1914 obs. of  16 variables:\n $ date               : chr  \"2015-02-01\" \"2015-03-01\" \"2015-04-01\" \"2015-05-01\" ...\n $ admissions_total   : int  1583 1580 1779 1821 1689 1871 1784 1623 1673 1780 ...\n $ admissions_white   : int  600 615 706 730 704 758 760 659 673 734 ...\n $ admissions_black   : int  193 189 235 260 215 223 206 177 236 205 ...\n $ admissions_hispanic: num  633 640 701 669 618 738 670 629 636 696 ...\n $ admissions_amerind : num  130 114 115 125 129 121 119 123 102 110 ...\n $ admissions_asian   : num  6 3 4 8 0 5 6 8 8 10 ...\n $ admissions_other   : num  21 19 18 29 23 26 23 27 18 25 ...\n $ releases_total     : int  1649 1559 1693 1659 1570 1718 1637 1665 1653 1616 ...\n $ releases_white     : int  653 644 703 685 651 673 661 659 673 648 ...\n $ releases_black     : int  194 169 206 193 174 224 221 198 188 202 ...\n $ releases_hispanic  : num  688 610 657 616 603 662 626 653 641 630 ...\n $ releases_amerind   : num  85 111 93 136 111 132 107 120 123 108 ...\n $ releases_asian     : num  7 6 5 3 7 5 4 9 4 5 ...\n $ releases_other     : num  22 19 29 26 24 22 18 26 24 23 ...\n $ state              : chr  \"Arizona\" \"Arizona\" \"Arizona\" \"Arizona\" ...\n```\n\n\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\ndf$date = as.Date(df$date, format=\"%Y-%m-%d\")\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nsapply(df, function(x) sum(is.na(x)))\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n               date    admissions_total    admissions_white    admissions_black \n                  0                   0                   0                   0 \nadmissions_hispanic  admissions_amerind    admissions_asian    admissions_other \n                  0                   0                   0                   0 \n     releases_total      releases_white      releases_black   releases_hispanic \n                  0                   0                   0                   0 \n   releases_amerind      releases_asian      releases_other               state \n                  0                   0                   0                   0 \n```\n\n\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\ndata = df %>% distinct()\n```\n:::\n",
+    "supporting": [
+      "blog-post-2_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
