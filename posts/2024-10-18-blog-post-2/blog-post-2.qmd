@@ -79,7 +79,7 @@ summary(data)
 
 
 ```{r}
-saveRDS(df_cleaned, "dataset/cleaned_dataset.rds")
+saveRDS(data, "dataset/cleaned_dataset.rds")
 ```
 ### We saved the cleaned dataset as an .rds file using saveRDS().
 ### This will allow for quick loading of the cleaned dataset in future sessions using read_rds().
