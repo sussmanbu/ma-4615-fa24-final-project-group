@@ -203,6 +203,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<section id="in-response-to-our-first-blog-post-we-shifted-our-focus-to-analyzing-the-us-prison-population.-this-dataset-includes-information-on-admission-and-release-totals-along-with-the-total-broken-down-by-race-the-date-of-this-data-collection-and-the-states-from-which-the-data-was-gathered.-the-data-comes-from-the-article-titled-covid-19-amplified-racial-disparities-in-the-us-criminal-legal-system-collected-by-a-team-of-researchers.-this-data-was-collected-to-examine-how-the-covid-19-pandemic-affected-the-racial-composition-of-us-prisons.-despite-an-overall-decrease-in-the-prison-population-the-proportion-of-incarcerated-black-and-latino-prisoners-increased.-so-the-study-aims-to-understand-why-this-happened-and-how-the-pandemic-made-racial-inequalities-in-the-prison-system-worse.-the-data-is-available-on-nature.com-a-scientific-journal-that-publishes-peer-reviewed-research-and-news." class="level3">
+<h3 class="anchored" data-anchor-id="in-response-to-our-first-blog-post-we-shifted-our-focus-to-analyzing-the-us-prison-population.-this-dataset-includes-information-on-admission-and-release-totals-along-with-the-total-broken-down-by-race-the-date-of-this-data-collection-and-the-states-from-which-the-data-was-gathered.-the-data-comes-from-the-article-titled-covid-19-amplified-racial-disparities-in-the-us-criminal-legal-system-collected-by-a-team-of-researchers.-this-data-was-collected-to-examine-how-the-covid-19-pandemic-affected-the-racial-composition-of-us-prisons.-despite-an-overall-decrease-in-the-prison-population-the-proportion-of-incarcerated-black-and-latino-prisoners-increased.-so-the-study-aims-to-understand-why-this-happened-and-how-the-pandemic-made-racial-inequalities-in-the-prison-system-worse.-the-data-is-available-on-nature.com-a-scientific-journal-that-publishes-peer-reviewed-research-and-news.">In response to our first blog post, we shifted our focus to analyzing the US prison population. This dataset includes information on admission and release totals, along with the total broken down by race, the date of this data collection, and the states from which the data was gathered. The data comes from the article titled “COVID-19 Amplified Racial Disparities in the US Criminal Legal System,” collected by a team of researchers. This data was collected to examine how the COVID-19 pandemic affected the racial composition of US prisons. Despite an overall decrease in the prison population, the proportion of incarcerated Black and Latino prisoners increased. So, the study aims to understand why this happened and how the pandemic made racial inequalities in the prison system worse. The data is available on Nature.com, a scientific journal that publishes peer-reviewed research and news.</h3>
+</section>
+<section id="we-firstly-found-the-dataset-on-kaggle.-there-is-a-link-to-githubhttpsgithub.comjkbrenincarcerated-populations-data-which-is-also-the-original-source-of-this-dataset.-also-there-is-a-nature-article-discussing-about-the-dataset-link-httpswww.nature.comarticless41586-023-05980-2." class="level3">
+<h3 class="anchored" data-anchor-id="we-firstly-found-the-dataset-on-kaggle.-there-is-a-link-to-githubhttpsgithub.comjkbrenincarcerated-populations-data-which-is-also-the-original-source-of-this-dataset.-also-there-is-a-nature-article-discussing-about-the-dataset-link-httpswww.nature.comarticless41586-023-05980-2.">We firstly found the dataset on Kaggle. There is a link to github(https://github.com/jkbren/incarcerated-populations-data/), which is also the original source of this dataset. Also, there is a nature article discussing about the dataset (link https://www.nature.com/articles/s41586-023-05980-2)).</h3>
+</section>
+<section id="the-question-asked-most-about-this-dataset-is-what-are-the-long-term-trends-in-admissions-and-releases-across-different-states-and-how-do-these-trends-correlate-with-changes-in-policy.-this-is-also-the-concern-of-policymakers." class="level3">
+<h3 class="anchored" data-anchor-id="the-question-asked-most-about-this-dataset-is-what-are-the-long-term-trends-in-admissions-and-releases-across-different-states-and-how-do-these-trends-correlate-with-changes-in-policy.-this-is-also-the-concern-of-policymakers.">The question asked most about this dataset is “What are the long-term trends in admissions and releases across different states, and how do these trends correlate with changes in policy”. This is also the concern of policymakers.</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"admissions_releases_states.csv"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -226,27 +234,220 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  $ state              : chr  "Arizona" "Arizona" "Arizona" "Arizona" ...</code></pre>
 </div>
 </div>
+</section>
+<section id="next-we-read-the-csv-file-admissions_releases_states.csv-into-a-dataframe-df." class="level3">
+<h3 class="anchored" data-anchor-id="next-we-read-the-csv-file-admissions_releases_states.csv-into-a-dataframe-df.">Next, we read the CSV file admissions_releases_states.csv into a dataframe df.</h3>
+</section>
+<section id="we-applied-str-to-display-the-structure-of-the-dataset-including-the-names-and-types-of-the-columns." class="level3">
+<h3 class="anchored" data-anchor-id="we-applied-str-to-display-the-structure-of-the-dataset-including-the-names-and-types-of-the-columns.">We applied str() to display the structure of the dataset, including the names and types of the columns.</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>date <span class="ot">=</span> <span class="fu">as.Date</span>(df<span class="sc">$</span>date, <span class="at">format=</span><span class="st">"%Y-%m-%d"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="we-converted-the-date-column-from-a-string-format-to-a-proper-date-format-using-as.date." class="level3">
+<h3 class="anchored" data-anchor-id="we-converted-the-date-column-from-a-string-format-to-a-proper-date-format-using-as.date.">We converted the date column from a string format to a proper Date format using as.Date().</h3>
+</section>
+<section id="this-allows-for-easier-date-based-operations-in-the-future." class="level3">
+<h3 class="anchored" data-anchor-id="this-allows-for-easier-date-based-operations-in-the-future.">This allows for easier date-based operations in the future.</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(df, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Date =</span> date,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Admissions =</span> admissions_total,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">White_Admissions =</span> admissions_white,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Black_Admissions =</span> admissions_black,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Hispanic_Admissions =</span> admissions_hispanic,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">AmericanIndian_Admissions =</span> admissions_amerind,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">Asian_Admissions =</span> admissions_asian,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Other_Admissions =</span> admissions_other,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Releases =</span> releases_total,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">White_Releases =</span> releases_white,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Black_Releases =</span> releases_black,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Hispanic_Releases =</span> releases_hispanic,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">AmericanIndian_Releases =</span> releases_amerind,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">Asian_Releases =</span> releases_asian,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">Other_Releases =</span> releases_other,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">State =</span> state</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="we-applied-rename-to-change-the-column-names-to-more-representative-and-understandable-terms-making-the-data-clearer-to-work-with." class="level3">
+<h3 class="anchored" data-anchor-id="we-applied-rename-to-change-the-column-names-to-more-representative-and-understandable-terms-making-the-data-clearer-to-work-with.">We applied rename() to change the column names to more representative and understandable terms, making the data clearer to work with.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(data, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>               date    admissions_total    admissions_white    admissions_black 
-                  0                   0                   0                   0 
-admissions_hispanic  admissions_amerind    admissions_asian    admissions_other 
-                  0                   0                   0                   0 
-     releases_total      releases_white      releases_black   releases_hispanic 
-                  0                   0                   0                   0 
-   releases_amerind      releases_asian      releases_other               state 
-                  0                   0                   0                   0 </code></pre>
+<pre><code>                     Date          Total_Admissions          White_Admissions 
+                        0                         0                         0 
+         Black_Admissions       Hispanic_Admissions AmericanIndian_Admissions 
+                        0                         0                         0 
+         Asian_Admissions          Other_Admissions            Total_Releases 
+                        0                         0                         0 
+           White_Releases            Black_Releases         Hispanic_Releases 
+                        0                         0                         0 
+  AmericanIndian_Releases            Asian_Releases            Other_Releases 
+                        0                         0                         0 
+                    State 
+                        0 </code></pre>
 </div>
 </div>
+</section>
+<section id="we-applied-sapply-to-check-for-any-missing-values-in-the-dataset.-this-function-returns-the-number-of-na-missing-values-for-each-column." class="level3">
+<h3 class="anchored" data-anchor-id="we-applied-sapply-to-check-for-any-missing-values-in-the-dataset.-this-function-returns-the-number-of-na-missing-values-for-each-column.">We applied sapply() to check for any missing values in the dataset. This function returns the number of NA (missing) values for each column.</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> df <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> data <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="we-removed-any-duplicate-rows-in-the-dataset-by-applying-the-distinct-function-ensuring-each-row-in-data-is-unique." class="level3">
+<h3 class="anchored" data-anchor-id="we-removed-any-duplicate-rows-in-the-dataset-by-applying-the-distinct-function-ensuring-each-row-in-data-is-unique.">We removed any duplicate rows in the dataset by applying the distinct() function, ensuring each row in data is unique.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Date            Total_Admissions White_Admissions Black_Admissions
+ Min.   :2000-01-01   Min.   :   1.0   Min.   :   1.0   Min.   :   0.0  
+ 1st Qu.:2015-07-01   1st Qu.: 318.5   1st Qu.: 217.0   1st Qu.:  36.0  
+ Median :2018-02-01   Median : 617.0   Median : 368.5   Median : 109.0  
+ Mean   :2017-02-26   Mean   : 823.2   Mean   : 452.2   Mean   : 192.4  
+ 3rd Qu.:2020-05-01   3rd Qu.: 861.0   3rd Qu.: 458.0   3rd Qu.: 264.0  
+ Max.   :2022-09-01   Max.   :6872.0   Max.   :2707.0   Max.   :1918.0  
+ Hispanic_Admissions AmericanIndian_Admissions Asian_Admissions
+ Min.   :   0.0      Min.   :  0.00            Min.   : 0.000  
+ 1st Qu.:   0.0      1st Qu.:  1.00            1st Qu.: 0.000  
+ Median :  26.0      Median : 13.00            Median : 3.000  
+ Mean   : 144.7      Mean   : 19.31            Mean   : 3.864  
+ 3rd Qu.:  96.0      3rd Qu.: 29.00            3rd Qu.: 6.000  
+ Max.   :2208.0      Max.   :159.00            Max.   :40.000  
+ Other_Admissions  Total_Releases   White_Releases   Black_Releases  
+ Min.   :  0.000   Min.   :  44.0   Min.   :  36.0   Min.   :   0.0  
+ 1st Qu.:  0.000   1st Qu.: 353.0   1st Qu.: 248.0   1st Qu.:  37.0  
+ Median :  2.000   Median : 654.0   Median : 387.0   Median : 121.0  
+ Mean   :  9.732   Mean   : 878.7   Mean   : 469.9   Mean   : 212.8  
+ 3rd Qu.: 13.000   3rd Qu.: 898.8   3rd Qu.: 481.0   3rd Qu.: 269.0  
+ Max.   :217.000   Max.   :7522.0   Max.   :2420.0   Max.   :1816.0  
+ Hispanic_Releases AmericanIndian_Releases Asian_Releases   Other_Releases   
+ Min.   :   0.0    Min.   :  0.00          Min.   : 0.000   Min.   :   0.00  
+ 1st Qu.:   0.0    1st Qu.:  1.00          1st Qu.: 0.000   1st Qu.:   0.00  
+ Median :  28.0    Median : 13.00          Median : 3.000   Median :   2.00  
+ Mean   : 160.9    Mean   : 19.41          Mean   : 3.939   Mean   :  11.79  
+ 3rd Qu.: 106.0    3rd Qu.: 30.00          3rd Qu.: 6.000   3rd Qu.:  13.00  
+ Max.   :3319.0    Max.   :149.00          Max.   :34.000   Max.   :1911.00  
+    State          
+ Length:1914       
+ Class :character  
+ Mode  :character  
+                   
+                   
+                   </code></pre>
+</div>
+</div>
+</section>
+<section id="finally-we-did-a-statistical-summary-of-the-cleaned-dataset-using-the-summary-function-which-provides-basic-statistics-like-the-minimum-maximum-and-mean-values-for-numerical-columns." class="level3">
+<h3 class="anchored" data-anchor-id="finally-we-did-a-statistical-summary-of-the-cleaned-dataset-using-the-summary-function-which-provides-basic-statistics-like-the-minimum-maximum-and-mean-values-for-numerical-columns.">Finally, we did a statistical summary of the cleaned dataset using the summary() function, which provides basic statistics like the minimum, maximum, and mean values for numerical columns.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(data, <span class="st">"dataset/cleaned_dataset.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="we-saved-the-cleaned-dataset-as-an-.rds-file-using-saverds." class="level3">
+<h3 class="anchored" data-anchor-id="we-saved-the-cleaned-dataset-as-an-.rds-file-using-saverds.">We saved the cleaned dataset as an .rds file using saveRDS().</h3>
+</section>
+<section id="this-will-allow-for-quick-loading-of-the-cleaned-dataset-in-future-sessions-using-read_rds." class="level3">
+<h3 class="anchored" data-anchor-id="this-will-allow-for-quick-loading-of-the-cleaned-dataset-in-future-sessions-using-read_rds.">This will allow for quick loading of the cleaned dataset in future sessions using read_rds().</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>admissions_totals <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_White_Admissions =</span> <span class="fu">sum</span>(White_Admissions, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Black_Admissions =</span> <span class="fu">sum</span>(Black_Admissions, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Hispanic_Admissions =</span> <span class="fu">sum</span>(Hispanic_Admissions, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_AmericanIndian_Admissions =</span> <span class="fu">sum</span>(AmericanIndian_Admissions, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Asian_Admissions =</span> <span class="fu">sum</span>(Asian_Admissions, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Other_Admissions =</span> <span class="fu">sum</span>(Other_Admissions, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>releases_totals <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_White_Releases =</span> <span class="fu">sum</span>(White_Releases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Black_Releases =</span> <span class="fu">sum</span>(Black_Releases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Hispanic_Releases =</span> <span class="fu">sum</span>(Hispanic_Releases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_AmericanIndian_Releases =</span> <span class="fu">sum</span>(AmericanIndian_Releases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Asian_Releases =</span> <span class="fu">sum</span>(Asian_Releases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Other_Releases =</span> <span class="fu">sum</span>(Other_Releases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="here-we-calculated-the-total-admissions-and-releases-for-each-racial-group-by-summing-the-values-across-the-entire-dataset.-this-ensures-we-can-visualize-the-total-counts-of-admissions-and-releases-for-different-racial-groups-over-the-entire-time-range." class="level3">
+<h3 class="anchored" data-anchor-id="here-we-calculated-the-total-admissions-and-releases-for-each-racial-group-by-summing-the-values-across-the-entire-dataset.-this-ensures-we-can-visualize-the-total-counts-of-admissions-and-releases-for-different-racial-groups-over-the-entire-time-range.">Here, we calculated the total admissions and releases for each racial group by summing the values across the entire dataset. This ensures we can visualize the total counts of admissions and releases for different racial groups over the entire time range.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>admissions_melt <span class="ot">=</span> tidyr<span class="sc">::</span><span class="fu">gather</span>(admissions_totals, <span class="at">key =</span> <span class="st">"Race"</span>, <span class="at">value =</span> <span class="st">"Admissions"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>releases_melt <span class="ot">=</span> tidyr<span class="sc">::</span><span class="fu">gather</span>(releases_totals, <span class="at">key =</span> <span class="st">"Race"</span>, <span class="at">value =</span> <span class="st">"Releases"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>admissions_melt<span class="sc">$</span>Race <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"White"</span>, <span class="st">"Black"</span>, <span class="st">"Hispanic"</span>, <span class="st">"American Indian"</span>, <span class="st">"Asian"</span>, <span class="st">"Other"</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>releases_melt<span class="sc">$</span>Race <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"White"</span>, <span class="st">"Black"</span>, <span class="st">"Hispanic"</span>, <span class="st">"American Indian"</span>, <span class="st">"Asian"</span>, <span class="st">"Other"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="here-we-reshaped-the-summarized-data-using-tidyrgather-to-convert-it-into-a-long-format-which-is-suitable-for-plotting-with-ggplot2.-additionally-we-ensured-the-race-names-were-labeled-correctly-for-clear-and-consistent-x-axis-labels-in-the-plots." class="level3">
+<h3 class="anchored" data-anchor-id="here-we-reshaped-the-summarized-data-using-tidyrgather-to-convert-it-into-a-long-format-which-is-suitable-for-plotting-with-ggplot2.-additionally-we-ensured-the-race-names-were-labeled-correctly-for-clear-and-consistent-x-axis-labels-in-the-plots.">Here, we reshaped the summarized data using tidyr::gather() to convert it into a long format, which is suitable for plotting with ggplot2. Additionally, we ensured the race names were labeled correctly for clear and consistent x-axis labels in the plots.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(admissions_melt, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Race, <span class="sc">-</span>Admissions), <span class="at">y =</span> Admissions, <span class="at">fill =</span> Race)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Total Prison Admissions by Race for the Entire Time Range"</span>, <span class="at">x =</span> <span class="st">"Race"</span>, <span class="at">y =</span> <span class="st">"Total Admissions"</span>) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">10</span>)), </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">10</span>))</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"White"</span> <span class="ot">=</span> <span class="st">"#1f77b4"</span>,    </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Black"</span> <span class="ot">=</span> <span class="st">"#ff7f0e"</span>,    </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Hispanic"</span> <span class="ot">=</span> <span class="st">"#2ca02c"</span>, </span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"American Indian"</span> <span class="ot">=</span> <span class="st">"#d62728"</span>, </span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Asian"</span> <span class="ot">=</span> <span class="st">"#9467bd"</span>,    </span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Other"</span> <span class="ot">=</span> <span class="st">"#8c564b"</span>   </span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="blog-post-2_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="in-this-plot-we-visualized-the-total-prison-admissions-by-race-across-the-entire-time-range-from-january-1-2000-to-september-1-2022.-each-bar-represents-a-different-racial-group-and-we-used-custom-colors-for-the-bars-to-distinguish-them.-the-bars-are-sorted-in-descending-order-based-on-the-total-admissions-for-each-race.-the-bar-plot-for-total-prison-admissions-by-race-shows-that-white-individuals-account-for-the-highest-number-of-admissions-865467-followed-by-black-individuals-368346-and-hispanic-individuals-277007.-american-indian-admissions-36958-are-notably-lower-and-asian-7396-and-other-18627-groups-represent-the-smallest-proportions.-these-disparities-highlight-racial-differences-in-prison-admissions-and-future-analyses-will-explore-how-these-patterns-change-over-time-particularly-focusing-on-significant-periods-such-as-the-covid-19-pandemic." class="level3">
+<h3 class="anchored" data-anchor-id="in-this-plot-we-visualized-the-total-prison-admissions-by-race-across-the-entire-time-range-from-january-1-2000-to-september-1-2022.-each-bar-represents-a-different-racial-group-and-we-used-custom-colors-for-the-bars-to-distinguish-them.-the-bars-are-sorted-in-descending-order-based-on-the-total-admissions-for-each-race.-the-bar-plot-for-total-prison-admissions-by-race-shows-that-white-individuals-account-for-the-highest-number-of-admissions-865467-followed-by-black-individuals-368346-and-hispanic-individuals-277007.-american-indian-admissions-36958-are-notably-lower-and-asian-7396-and-other-18627-groups-represent-the-smallest-proportions.-these-disparities-highlight-racial-differences-in-prison-admissions-and-future-analyses-will-explore-how-these-patterns-change-over-time-particularly-focusing-on-significant-periods-such-as-the-covid-19-pandemic.">In this plot, we visualized the total prison admissions by race across the entire time range from January 1, 2000 to September 1, 2022. Each bar represents a different racial group, and we used custom colors for the bars to distinguish them. The bars are sorted in descending order based on the total admissions for each race. The bar plot for total prison admissions by race shows that White individuals account for the highest number of admissions (865,467), followed by Black individuals (368,346), and Hispanic individuals (277,007). American Indian admissions (36,958) are notably lower, and Asian (7,396) and Other (18,627) groups represent the smallest proportions. These disparities highlight racial differences in prison admissions, and future analyses will explore how these patterns change over time, particularly focusing on significant periods such as the COVID-19 pandemic.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(releases_melt, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Race, <span class="sc">-</span>Releases), <span class="at">y =</span> Releases, <span class="at">fill =</span> Race)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Total Prison Releases by Race for the Entire Time Range"</span>, <span class="at">x =</span> <span class="st">"Race"</span>, <span class="at">y =</span> <span class="st">"Total Releases"</span>) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">10</span>)), </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">10</span>))</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"White"</span> <span class="ot">=</span> <span class="st">"#1f77b4"</span>,  </span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Black"</span> <span class="ot">=</span> <span class="st">"#ff7f0e"</span>,  </span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Hispanic"</span> <span class="ot">=</span> <span class="st">"#2ca02c"</span>, </span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"American Indian"</span> <span class="ot">=</span> <span class="st">"#d62728"</span>,</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Asian"</span> <span class="ot">=</span> <span class="st">"#9467bd"</span>,  </span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Other"</span> <span class="ot">=</span> <span class="st">"#8c564b"</span> </span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="blog-post-2_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="similarly-this-plot-shows-the-total-prison-releases-by-race-for-the-entire-time-range-from-january-1-2000-to-september-1-2022.-like-the-admissions-plot-the-bars-are-color-coded-and-sorted-in-descending-order-of-total-releases-giving-a-clear-overview-of-the-distribution-of-releases-among-different-racial-groups.-the-bar-plot-for-total-prison-releases-shows-similar-trends-with-white-individuals-having-the-highest-release-count-899298-followed-by-black-407339-and-hispanic-307995-individuals.-again-american-indian-37153-asian-7540-and-other-22563-groups-have-smaller-totals.-moving-forward-we-will-conduct-a-time-dependent-analysis-to-examine-trends-over-various-time-periods-with-special-attention-to-the-effects-of-covid-19-on-prison-admissions-and-releases-during-the-pandemic." class="level3">
+<h3 class="anchored" data-anchor-id="similarly-this-plot-shows-the-total-prison-releases-by-race-for-the-entire-time-range-from-january-1-2000-to-september-1-2022.-like-the-admissions-plot-the-bars-are-color-coded-and-sorted-in-descending-order-of-total-releases-giving-a-clear-overview-of-the-distribution-of-releases-among-different-racial-groups.-the-bar-plot-for-total-prison-releases-shows-similar-trends-with-white-individuals-having-the-highest-release-count-899298-followed-by-black-407339-and-hispanic-307995-individuals.-again-american-indian-37153-asian-7540-and-other-22563-groups-have-smaller-totals.-moving-forward-we-will-conduct-a-time-dependent-analysis-to-examine-trends-over-various-time-periods-with-special-attention-to-the-effects-of-covid-19-on-prison-admissions-and-releases-during-the-pandemic.">Similarly, this plot shows the total prison releases by race for the entire time range from January 1, 2000 to September 1, 2022. Like the admissions plot, the bars are color-coded and sorted in descending order of total releases, giving a clear overview of the distribution of releases among different racial groups. The bar plot for total prison releases shows similar trends, with White individuals having the highest release count (899298), followed by Black (407339) and Hispanic (307995) individuals. Again, American Indian (37153), Asian (7540), and Other (22,563) groups have smaller totals. Moving forward, we will conduct a time-dependent analysis to examine trends over various time periods, with special attention to the effects of COVID-19 on prison admissions and releases during the pandemic.</h3>
+</section>
+<section id="transparency-and-representation-are-key-principles-in-equitable-data-practices-both-of-which-are-relevant-to-our-analysis-of-the-prison-admissions-and-releases-dataset.-we-will-ensure-transparency-by-clearly-documenting-the-data-source-collection-methods-and-any-potential-limitations-such-as-missing-data-or-sample-bias-to-prevent-misuse-or-misinterpretation.-additionally-we-will-focus-on-representation-by-checking-the-distribution-of-different-racial-groups-in-the-dataset-to-ensure-no-group-is-underrepresented-and-we-will-acknowledge-any-imbalances-that-may-affect-our-results.-this-approach-helps-promote-fairness-and-accuracy-in-our-analysis." class="level3">
+<h3 class="anchored" data-anchor-id="transparency-and-representation-are-key-principles-in-equitable-data-practices-both-of-which-are-relevant-to-our-analysis-of-the-prison-admissions-and-releases-dataset.-we-will-ensure-transparency-by-clearly-documenting-the-data-source-collection-methods-and-any-potential-limitations-such-as-missing-data-or-sample-bias-to-prevent-misuse-or-misinterpretation.-additionally-we-will-focus-on-representation-by-checking-the-distribution-of-different-racial-groups-in-the-dataset-to-ensure-no-group-is-underrepresented-and-we-will-acknowledge-any-imbalances-that-may-affect-our-results.-this-approach-helps-promote-fairness-and-accuracy-in-our-analysis.">Transparency and representation are key principles in equitable data practices, both of which are relevant to our analysis of the prison admissions and releases dataset. We will ensure transparency by clearly documenting the data source, collection methods, and any potential limitations, such as missing data or sample bias, to prevent misuse or misinterpretation. Additionally, we will focus on representation by checking the distribution of different racial groups in the dataset to ensure no group is underrepresented, and we will acknowledge any imbalances that may affect our results. This approach helps promote fairness and accuracy in our analysis.</h3>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
