@@ -11,41 +11,313 @@ date-modified: "2024-10-23"
 draft: FALSE
 ---
 
-We decided to do some exploratory data analysis to understand what is going on with our data.
+
+We are continuing to closely examine the admissions and releases dataset. The article highlights significant differences in admission and release patterns across racial groups and states, especially during the pandemic. It found that, although overall prison admissions decreased, Black and Latino populations were affected more by admissions and slower release rates than white populations. While some data from before the pandemic (pre-2019) is included, we chose to focus on data from 2019 to 2022. We also noticed that data is available for only some states, limiting our view of the whole U.S., so we plan to focus on a few specific states. The article explains that this is because states had different policies for releases and for reporting (such as self-reporting versus staff assignments).
+
+```{r}
+library(ggplot2)
+library(dplyr)
+```
 
 ```{r}
 data = readRDS("dataset/cleaned_dataset.rds")
 head(data)
 ```
 
-
-```{r fig.width = 12, fig.height=6}
-library(ggplot2)
-library(dplyr)
-
+```{r fig.height=7, fig.width=10}
 data$date <- as.Date(data$Date)
-
-data_grouped <- data %>%
+data_filtered = data %>%
+  filter(date >= as.Date("2019-01-01") & date <= as.Date("2022-01-01")) %>%
   group_by(date) %>%
   summarise(
-    admissions_total = sum(Total_Admissions, na.rm = TRUE),
-    releases_total = sum(Total_Releases, na.rm = TRUE)
+    Total_Admissions = sum(Total_Admissions, na.rm = TRUE),
+    Total_Releases = sum(Total_Releases, na.rm = TRUE)
   )
 
-ggplot(data_grouped, aes(x = date)) +
-  geom_line(aes(y = admissions_total, color = "Total Admissions"), linewidth = 1) +
-  geom_line(aes(y = releases_total, color = "Total Releases"), linewidth = 1) +
-  geom_point(aes(y = admissions_total, color = "Total Admissions"), size = 2) +
-  geom_point(aes(y = releases_total, color = "Total Releases"), size = 2) +
-  ggtitle("Time Series of Total Prison Admissions and Releases Over Time") +
-  xlab("Date") +
-  ylab("Count") +
-  scale_color_manual(values = c("Total Admissions" = "blue", "Total Releases" = "red")) +
+ggplot(data_filtered, aes(x = date)) +
+  geom_line(aes(y = Total_Admissions, color = "Total Admissions")) +
+  geom_line(aes(y = Total_Releases, color = "Total Releases")) +
+  labs(
+    title = "Total Prison Admissions and Releases for 18 States (2019-2022)",
+    x = "Date",
+    y = "Count"
+  ) +
+  theme_minimal() +
+  scale_color_manual(
+    values = c("Total Admissions" = "blue", "Total Releases" = "red"),
+    name = NULL 
+  ) +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5), 
+    axis.title.x = element_text(size = 13, margin = margin(t = 10)), 
+    axis.title.y = element_text(size = 13, margin = margin(r = 10)),  
+    axis.text.x = element_text(size = 11.2), 
+    axis.text.y = element_text(size = 12), 
+    legend.position = "bottom",
+    legend.text = element_text(size = 12), 
+    legend.key.size = unit(1.2, "cm") 
+  ) +
+  scale_x_date(
+    date_breaks = "4 months",  
+    date_labels = "%b %Y"      
+  )
+```
+The plot titled "Total Prison Admissions and Releases for 18 States (2019-2022)" provides insights into the trends of total prison admissions and releases during this period, with the blue line representing admissions and the red line indicating releases.
+
+The data captures patterns before, during, and after the COVID-19 pandemic. Notably, there is a significant decline in admissions from February to April 2020, with counts dropping from 17500 to just below 5000, coinciding with the early rise of the pandemic. Additionally, two spikes in releases are observed: one in April 2020, possibly related to prison population management, and another in July 2020.
+
+The subsequent rise in admissions during September 2020, followed by a decline until November, suggests evolving responses within the correctional system.
+
+While this analysis highlights distinct patterns, it is essential to consider potential factors behind these trends. For instance, the lockdown may have contributed to reduced crime rates due to fewer people being outside, leading to fewer arrests. Additionally, individuals with minor offenses might have been released earlier to manage the pandemic's impact on prison populations. However, these interpretations are hypotheses that require further investigation and reading to confirm their validity.
+
+This analysis underscores the complexity of interpreting shifts in prison data during unprecedented events like the COVID-19 pandemic.
+
+
+```{r fig.height=7, fig.width=10}
+data_filtered <- data |> 
+  filter(Date >= as.Date("2019-01-01") & Date <= as.Date("2022-01-01")) |> 
+  group_by(date) |> 
+  summarize(
+    White_Admissions = sum(White_Admissions, na.rm = TRUE),
+    White_Releases = sum(White_Releases, na.rm = TRUE)
+  )
+ 
+data_filtered |> 
+  ggplot(aes(x = date)) +
+  geom_line(aes(y = White_Admissions, color = "White admissions"), linewidth = 0.5) +
+  geom_line(aes(y = White_Releases, color = "White releases"), linewidth = 0.5) +
+  scale_color_manual(values = c("White admissions" = "blue", "White releases" = "red")) +
+  scale_x_date(
+    date_breaks = "4 months",
+    date_labels = "%b %Y"
+  ) +
+  labs(
+    title = "Total White Admissions and Releases for 18 States (2019-2022)",
+    x = "Date",
+    y = "White Admissions and Releases",
+    color = ""
+  ) +
   theme_minimal() +
   theme(
-    legend.title = element_blank(),
-    plot.title = element_text(hjust = 0.5)
+    legend.position = "bottom",
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+    axis.title.x = element_text(size = 13, margin = margin(t = 10)),
+    axis.title.y = element_text(size = 13, margin = margin(r = 10)),
+    axis.text.x = element_text(size = 11.2),
+    axis.text.y = element_text(size = 12),
+    legend.text = element_text(size = 12),
+    legend.key.size = unit(1.2, "cm") 
+  )
+
+```
+In the white population plot, there is a steady trend in admissions and releases. Until March 2020, there is a spike in releases while there is a decrease in admissions. Then, as the admission slowly increases and the releases decrease, there occurs a small spike and decrease again in releases and admissions. Towards November 2020 and onwards, the relationship between admissions and releases start to regulate but not in the same numbers as in 2019.   
+
+
+```{r fig.height=7, fig.width=10}
+data_filtered <- data |> 
+  filter(Date >= as.Date("2019-01-01") & Date <= as.Date("2022-01-01")) |> 
+  group_by(date) |> 
+  summarize(
+    AmericanIndian_Admissions = sum(AmericanIndian_Admissions, na.rm = TRUE),
+    AmericanIndian_Releases = sum(AmericanIndian_Releases, na.rm = TRUE)
+  )
+ 
+data_filtered |> 
+  ggplot(aes(x = date)) +
+  geom_line(aes(y = AmericanIndian_Admissions, color = "American-Indian admissions")) +
+  geom_line(aes(y = AmericanIndian_Releases, color = "American-Indian releases"), size = 0.5) +
+  scale_color_manual(values = c("American-Indian admissions" = "blue", "American-Indian releases" = "red")) +
+  scale_x_date(
+    date_breaks = "4 months",
+    date_labels = "%b %Y"
+  ) +
+  labs(
+    title = "Total American-Indian Admissions and Releases for 18 States (2019-2022)",
+    x = "Date",
+    y = "American-Indian Admissions and Releases",
+    color = ""
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+    axis.title.x = element_text(size = 13, margin = margin(t = 10)),
+    axis.title.y = element_text(size = 13, margin = margin(r = 10)),
+    axis.text.x = element_text(size = 11.2),
+    axis.text.y = element_text(size = 12),
+    legend.text = element_text(size = 12),
+    legend.key.size = unit(1.2, "cm") 
+  )
+```
+The graph illustrates trends in American-Indian admissions and releases from 2019 to 2022. Before covid period the admissions and releases were fluctuation in the range of 400 and 325 count. In the early part of 2019, admissions and releases were close in number, with some fluctuations. Around March 2020, there is a sharp drop in admissions (from 350 to 175) and a spike in releases (from 350 to 430). Admissions remain lower than releases for most of the period after March 2020, despite some fluctuations. The trend for both admissions and releases appears more volatile from 2021 onward, with admissions and releases converging and diverging frequently. By the end of the chart, both admissions and releases have decreased from their initial 2019 levels, with both metrics reaching similar levels but remaining relatively low.
+
+
+
+```{r fig.height=7, fig.width=10}
+data$date <- as.Date(data$Date)
+data_aggregated <- data %>%
+  group_by(date) %>%
+  summarise(
+    total_black_admissions = sum(Black_Admissions, na.rm = TRUE),
+    total_black_releases = sum(Black_Releases, na.rm = TRUE),
+    .groups = 'drop'
+  )
+
+data_filtered <- data_aggregated %>%
+  filter(date >= as.Date("2019-01-01") & date <= as.Date("2022-01-31"))
+
+ggplot(data_filtered, aes(x = date)) +
+  geom_line(aes(y = total_black_admissions, color = "Black Admissions")) +
+  geom_line(aes(y = total_black_releases, color = "Black Releases")) +
+  labs(
+    title = "Total Black Admissions and Releases For 18 States (2019-2022)",
+    x = "Date",
+    y = "Total Black Admissions and Releases"
+  ) +
+  scale_x_date(date_breaks = "4 months", date_labels = "%b %Y") +  
+  theme_minimal() +
+  scale_color_manual(
+    values = c("Black Admissions" = "blue", "Black Releases" = "red"),
+    name = NULL  
+  ) +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5), 
+    axis.title.x = element_text(size = 13, margin = margin(t = 10)), 
+    axis.title.y = element_text(size = 13, margin = margin(r = 10)),  
+    axis.text.x = element_text(size = 11.2), 
+    axis.text.y = element_text(size = 12), 
+    legend.position = "bottom",
+    legend.text = element_text(size = 12), 
+    legend.key.size = unit(1.2, "cm") 
   )
 
 ```
 
+The graph illustrates trends in Black admissions and releases from 2019 to 2022. Both lines display relative stability in early 2019; however, admissions experience a sharp decline around March 2020, likely due to COVID-19 disruptions. Admissions decreased to around 500 by April 2020, while releases exhibit more fluctuations. Notably, there are two spikes in releases: one in April 2020, possibly related to efforts to manage prison populations during the pandemic, and another in July 2020. Admissions show some recovery, reaching around 3500 by late 2020, but remain significantly lower than pre-pandemic levels
+
+
+
+
+```{r fig.height=7, fig.width=10}
+data_filtered = data %>%
+  filter(date >= as.Date("2019-01-01") & date <= as.Date("2022-01-01")) %>%
+  group_by(date) %>%
+  summarise(
+    Hispanic_Admissions = sum(Hispanic_Admissions, na.rm = TRUE),
+    Hispanic_Releases = sum(Hispanic_Releases, na.rm = TRUE)
+  )
+
+ggplot(data_filtered, aes(x = date)) +
+  geom_line(aes(y = Hispanic_Admissions, color = "Hispanic Admissions")) +
+  geom_line(aes(y = Hispanic_Releases, color = "Hispanic Releases")) +
+  labs(
+    title = "Total Hispanic Prison Admissions and Releases for 18 States (2019-2022)",
+    x = "Date",
+    y = "Count"
+  ) +
+  theme_minimal() +
+  scale_color_manual(
+    values = c("Hispanic Admissions" = "blue", "Hispanic Releases" = "red"),
+    name = NULL  # Remove the legend label
+  ) +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5), 
+    axis.title.x = element_text(size = 13, margin = margin(t = 10)), 
+    axis.title.y = element_text(size = 13, margin = margin(r = 10)),  
+    axis.text.x = element_text(size = 11.2), 
+    axis.text.y = element_text(size = 12), 
+    legend.position = "bottom",
+    legend.text = element_text(size = 12), 
+    legend.key.size = unit(1.2, "cm") 
+  ) +
+  scale_x_date(
+    date_breaks = "4 months",  
+    date_labels = "%b %Y"      
+  )
+
+```
+
+The graph illustrates trends in Hispanic admissions and releases from 2019 to 2022. Prior to 2020, both admissions and releases have a relatively steady trend, with releases slightly higher than admissions at times. Around March 2020 (the start of the COVID-19 pandemic), there’s a sharp drop in admissions (from approximately 4200 to less than 1000). There are two spikes in releases shortly after, possibly as a response to the pandemic. After the initial pandemic impact, both admissions and releases fluctuate, but the admissions remain lower than pre-2020 levels. Releases eventually stabilize around mid-2021 but continue to hover close to the admission rates.
+
+```{r fig.height=7, fig.width=10}
+data_filtered = data %>%
+  filter(date >= as.Date("2019-01-01") & date <= as.Date("2022-01-01")) %>%
+  group_by(date) %>%
+  summarise(
+    Asian_Admissions = sum(Asian_Admissions, na.rm = TRUE),
+    Asian_Releases = sum(Asian_Releases, na.rm = TRUE)
+  )
+
+ggplot(data_filtered, aes(x = date)) +
+  geom_line(aes(y = Asian_Admissions, color = "Asian Admissions")) +
+  geom_line(aes(y = Asian_Releases, color = "Asian Releases")) +
+  labs(
+    title = "Total Asian Prison Admissions and Releases for 18 States (2019-2022)",
+    x = "Date",
+    y = "Count"
+  ) +
+  theme_minimal() +
+  scale_color_manual(
+    values = c("Asian Admissions" = "blue", "Asian Releases" = "red"),
+    name = NULL  # Remove the legend label
+  ) +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5), 
+    axis.title.x = element_text(size = 13, margin = margin(t = 10)), 
+    axis.title.y = element_text(size = 13, margin = margin(r = 10)),  
+    axis.text.x = element_text(size = 11.2), 
+    axis.text.y = element_text(size = 12), 
+    legend.position = "bottom",
+    legend.text = element_text(size = 12), 
+    legend.key.size = unit(1.2, "cm") 
+  ) +
+  scale_x_date(
+    date_breaks = "4 months",  
+    date_labels = "%b %Y"      
+  )
+```
+
+The graph illustrates trends in Asian admissions and releases from 2019 to 2022. This plot shows consistently low and stable numbers from 2019 to 2022, with values generally under 100, which is significantly smaller than other racial groups. The trend remains relatively flat throughout 2019, but there's a noticeable drop of admissions and a rise of releases slightly passed 100 around early 2020. Following this decline, admissions and releases gradually return to previous levels, hovering around 50 to 70 for most of 2021. The y-axis, capped just above 100, highlights the low representation of the Asian population in prison admissions and releases, suggesting minimal impact on the overall trend compared to other groups.
+
+
+```{r fig.height=7, fig.width=10}
+data_filtered <- data |> 
+  filter(Date >= as.Date("2019-01-01") & Date <= as.Date("2022-01-01")) |> 
+  group_by(date) |> 
+  summarize(
+    Other_Admissions = sum(Other_Admissions, na.rm = TRUE),
+    Other_Releases = sum(Other_Releases, na.rm = TRUE)
+  )
+ 
+data_filtered |> 
+  ggplot(aes(x = date)) +
+  geom_line(aes(y = Other_Admissions, color = "Other admissions"), size = 0.5) +
+  geom_line(aes(y = Other_Releases, color = "Other releases"), size = 0.5) +
+  scale_color_manual(values = c("Other admissions" = "blue", "Other releases" = "red")) +
+  scale_x_date(
+    date_breaks = "4 months",
+    date_labels = "%b %Y"
+  ) +
+  labs(
+    title = "Total Other Admissions and Releases for 18 States (2019-2022)",
+    x = "Date",
+    y = "Other Admissions and Releases",
+    color = ""
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+    axis.title.x = element_text(size = 13, margin = margin(t = 10)),
+    axis.title.y = element_text(size = 13, margin = margin(r = 10)),
+    axis.text.x = element_text(size = 11.2),
+    axis.text.y = element_text(size = 12),
+    legend.text = element_text(size = 12),
+    legend.key.size = unit(1.2, "cm") 
+  )
+```
+
+The graph illustrates trends in admissions and releases of other races from 2019 to 2022. Notably, in the pre-COVID period, there is a significant spike in releases from September to November, increasing from 250 to 2000 in just one month and then dropping back to 250. This spike is unrelated to COVID-19. During the COVID-19 period, admissions show a minor decline from February 2020, decreasing from 250 to 100, then rising again. Releases also exhibit a small spike in July 2020. After March 2021, both lines move closer to each other, though they remain slightly lower than pre-pandemic levels.
+
+
+Moving forward, we will narrow our analysis to focus on specific states, examining how admissions and releases have varied across racial groups. This targeted approach will help us better understand the differences in trends during the pandemic. By comparing these patterns, we aim to uncover more nuanced insights into racial disparities within the prison system.
