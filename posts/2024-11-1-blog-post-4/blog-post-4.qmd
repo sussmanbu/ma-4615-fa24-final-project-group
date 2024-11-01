@@ -1,0 +1,12 @@
+---
+title: "Blog Post 4"
+subtitle: "Phase 2 of the EDA"
+description:  |
+  Data Link:
+  https://www.kaggle.com/datasets/konradb/prison-population-in-the-us?select=populations_states.csv
+author: "Group 10"
+date: "2024-11-1"
+categories: [Blog Post 4]
+date-modified: "2024-11-1"
+draft: FALSE
+---
