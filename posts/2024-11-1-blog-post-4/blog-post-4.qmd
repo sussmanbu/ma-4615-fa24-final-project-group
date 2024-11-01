@@ -10,3 +10,39 @@ categories: [Blog Post 4]
 date-modified: "2024-11-1"
 draft: FALSE
 ---
+
+```{r}
+library(stats)
+library(dplyr)
+
+data <- readRDS("dataset/cleaned_dataset.rds")
+
+data <- data %>% 
+  mutate(Date = as.Date(Date, format = "%Y-%m-%d")) %>%
+  filter(Date >= as.Date("2019-01-01") & Date <= as.Date("2022-12-31"))
+
+data$State <- as.factor(data$State)
+
+model_admissions <- lm(Total_Admissions ~ State + White_Admissions + Black_Admissions + Hispanic_Admissions + AmericanIndian_Admissions + Asian_Admissions + Other_Admissions, data = data)
+
+summary(model_admissions)
+
+model_releases <- lm(Total_Releases ~ State + White_Releases + Black_Releases + Hispanic_Releases + AmericanIndian_Releases + Asian_Releases + Other_Releases, data = data)
+
+summary(model_releases)
+```
+
+
+This analysis highlights how both state and racial factors influence prison admissions and releases from 2019 to 2022.
+
+Admissions Model:
+
+With an R² of 0.9989, the admissions model shows that state and race-specific admissions strongly impact total admissions. Significant coefficients for racial groups, such as White_Admissions and Black_Admissions, reveal how increases in admissions among these groups substantially affect overall numbers, reflecting potential disparities in incarceration.
+Some states, like Kentucky and Idaho, show unique impacts on admission rates, likely due to state-specific policies or demographic factors.
+Releases Model:
+
+The releases model, with an R² of 0.9999, effectively captures variations in releases across racial groups and states. High coefficients for racial groups suggest that releases in each group proportionally influence total releases, hinting at systemic differences in how groups are processed for release.
+Certain states, such as California and Texas, exhibit distinctive release patterns. For instance, California’s positive coefficient may reflect state efforts to manage prison populations, while Texas’s negative coefficient suggests lower release rates, possibly tied to local policies.
+Interpretation and Implications:
+
+Both State and Race factors underscore geographic and racial disparities in incarceration practices. States with lower-than-expected release rates could benefit from policy adjustments for equitable practices, while the racial disparities observed in admissions suggest areas for justice reform.
