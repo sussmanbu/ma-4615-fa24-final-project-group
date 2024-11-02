@@ -1,0 +1,8 @@
+"Variable","Coefficient","Std_Error","t_value","p_value"
+"(Intercept)",7.7893,2.6597,2.9286,"0.003522"
+"White_Admissions",404.4349,0.0065,61867.5702,"< 1e-04"
+"Black_Admissions",283.8565,0.0131,21745.132,"< 1e-04"
+"Hispanic_Admissions",396.427,0.0105,37925.4412,"< 1e-04"
+"AmericanIndian_Admissions",23.1587,0.071,326.1195,"< 1e-04"
+"Asian_Admissions",4.4662,0.3533,12.6404,"< 1e-04"
+"Other_Admissions",19.7718,0.0784,252.2904,"< 1e-04"
