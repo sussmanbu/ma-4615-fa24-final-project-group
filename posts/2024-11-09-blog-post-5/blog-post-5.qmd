@@ -1,0 +1,111 @@
+---
+title: "Blog Post 5"
+subtitle: "Multiple Datasets"
+description:  |
+  Data Link:
+  https://www.kaggle.com/datasets/konradb/prison-population-in-the-us?select=populations_states.csv
+author: "Group 10"
+date: "2024-11-09"
+categories: [Blog Post 5]
+date-modified: "2024-11-09"
+draft: FALSE
+---
+```{r}
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(readxl)
+```
+
+```{r fig.height=7, fig.width=10}
+data = readRDS("dataset/cleaned_dataset.rds")
+data$date <- as.Date(data$Date)
+data_filtered_MA_1 = data %>%
+  filter(State == "Massachusetts") %>%
+  filter(date >= as.Date("2019-01-01") & date <= as.Date("2022-01-01")) %>%
+  group_by(date) %>%
+  summarise(
+    Total_Admissions = sum(Total_Admissions, na.rm = TRUE),
+    Total_Releases = sum(Total_Releases, na.rm = TRUE)
+  )
+ 
+# Plot for Massachusetts data
+ggplot(data_filtered_MA_1, aes(x = date)) +
+  geom_line(aes(y = Total_Admissions, color = "Total Admissions")) +
+  geom_line(aes(y = Total_Releases, color = "Total Releases")) +
+  labs(
+    title = "Total Prison Admissions and Releases in Massachusetts (2019-2022)",
+    x = "Date",
+    y = "Count"
+  ) +
+  theme_minimal() +
+  scale_color_manual(
+    values = c("Total Admissions" = "blue", "Total Releases" = "red"),
+    name = NULL 
+  ) +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5), 
+    axis.title.x = element_text(size = 13, margin = margin(t = 10)), 
+    axis.title.y = element_text(size = 13, margin = margin(r = 10)),  
+    axis.text.x = element_text(size = 11.2), 
+    axis.text.y = element_text(size = 12), 
+    legend.position = "bottom",
+    legend.text = element_text(size = 12), 
+    legend.key.size = unit(1.2, "cm") 
+  ) +
+  scale_x_date(
+    date_breaks = "4 months",  
+    date_labels = "%b %Y"      
+  )
+```
+The old dataset shows the trend of total prison admissions and releases in Massachusetts from 2019 to 2021. In 2019, both admissions and releases remained relatively high, with fluctuations throughout the year. For instance, admissions peaked in June 2019 with around 650, while releases were highest in October 2019, reaching approximately 750. However, starting in early 2020, admissions dropped sharply due to the pandemic, reaching as low as 96 in April 2020. Releases also declined but not as drastically, and they continued to exceed admissions throughout much of 2020. By mid-2020, admissions began to rise again but remained well below pre-pandemic levels. In 2021, both admissions and releases stabilized, with releases generally staying higher than admissions.
+
+```{r fig.height=7, fig.width=10}
+
+# Load the dataset
+data_MA <- read_excel("dataset/Admission_and_Release_Trends.xlsx", sheet = "Admission_and_Release_Trends")
+
+# Filter and transform the data for Massachusetts (if applicable)
+data_filtered_MA <- data_MA %>%
+  mutate(date = as.Date(paste(Year, Month, "1", sep = "-"), format = "%Y-%B-%d")) %>%
+  filter(Agency == "MA Department of Correction") %>%
+  filter(date >= as.Date("2019-01-01") & date <= as.Date("2022-01-01")) %>%
+  group_by(date, Event) %>%
+  summarise(Total_Count = sum(Count, na.rm = TRUE), .groups = "drop") %>%
+  ungroup() %>%
+  tidyr::pivot_wider(names_from = Event, values_from = Total_Count, values_fill = 0)
+
+# Plot the data
+ggplot(data_filtered_MA, aes(x = date)) +
+  geom_line(aes(y = Admission, color = "Total Admissions")) +
+  geom_line(aes(y = Release, color = "Total Releases")) +
+  labs(
+    title = "Total Prison Admissions and Releases in Massachusetts (2019-2022)",
+    x = "Date",
+    y = "Count"
+  ) +
+  theme_minimal() +
+  scale_color_manual(
+    values = c("Total Admissions" = "blue", "Total Releases" = "red"),
+    name = NULL
+  ) +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+    axis.title.x = element_text(size = 13, margin = margin(t = 10)),
+    axis.title.y = element_text(size = 13, margin = margin(r = 10)),
+    axis.text.x = element_text(size = 11.2),
+    axis.text.y = element_text(size = 12),
+    legend.position = "bottom",
+    legend.text = element_text(size = 12),
+    legend.key.size = unit(1.2, "cm")
+  ) +
+  scale_x_date(
+    date_breaks = "4 months",
+    date_labels = "%b %Y"
+  )
+```
+For comparative analysis of Massachusetts prison admissions and releases, our group found a complementary dataset from the Massachusetts Government website, available at https://www.mass.gov/info-details/cross-tracking-system-state-county-correctional-populations. There is dataset below "Downloads" section, titled "Admission_and_Release_Trends," provides monthly records of the number of individuals admitted to and released from January 31, 2017, to the present.
+
+The new dataset provides a similar timeline for Massachusetts admissions and releases but shows different numerical patterns and monthly peaks, reflecting possible differences in data sources or categorization methods. In 2019, admissions and releases also fluctuate, though the peak values are lower than those in the old dataset. For example, admissions reach a maximum of around 419 in June, significantly lower than the old dataset’s peak. In early 2020, both admissions and releases drop sharply, with admissions reaching a low of 23 in April—again lower than the old data. Unlike the old dataset, the new data suggests that releases do not stay consistently higher than admissions in late 2020; instead, they are closer in count. By 2021, both admissions and releases show a stabilized trend similar to the old dataset, although at a generally lower level.
+
+In summary, while both datasets show similar patterns of decline and stabilization through the pandemic, the new dataset records consistently lower counts for admissions and releases compared to the old one.
