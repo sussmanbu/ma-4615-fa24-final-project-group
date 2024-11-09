@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MA [46]15 Final Project: Group 10 - MA [46]15 Final Project</title>
+<title>MA [46]15 Final Project: Group 10</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,12 +30,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -68,73 +65,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -149,7 +88,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link active" href="./about.html" aria-current="page"> 
 <span class="menu-text">MA [46]15 Final Project: Group 10</span></a>
   </li>  
   <li class="nav-item">
@@ -172,309 +111,43 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">MA [46]15 Final Project</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="Blog Post 1">Blog Post 1 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Blog Post 2">Blog Post 2 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Blog Post 3">Blog Post 3 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Blog Post 4">Blog Post 4 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Blog Post 5">Blog Post 5 <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
-
-
-
-
-
-<p><img src="images/data-science.png" class="img-fluid"></p>
-<section id="final-project-due-may-7-2024-at-1159pm." class="level1">
-<h1>Final Project due May 7, 2024 at 11:59pm.</h1>
-
+<div class="quarto-about-jolla content">
+ <header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">MA [46]15 Final Project: Group 10</h1>
+</div>
+<div class="quarto-title-meta">
+  </div>
+</header><main class="content" id="quarto-document-content">
+<p>This comes from the file <code>about.qmd</code>.</p>
+<p>This is a website for the final project for MA[46]15 Data Science with R by Team Group 10. The members of this team are below.</p>
+<p>Hakob Janesian - https://github.com/HakobJanesian</p>
+<p>Minjun Kim - https://github.com/minjunk3</p>
+<p>Zhuolei Chen - https://github.com/Alex030214</p>
+<p>Shiyu Zhang - https://github.com/IvannnnZ</p>
+<p>Dana Vivar - https://github.com/danavivar</p>
+<!-- Please leave in the information below -->
+<section id="about-this-template." class="level3">
+<h3 data-anchor-id="about-this-template.">About this Template.</h3>
+<p>This is based off of the standard Quarto website template from RStudio (2023.09.0 Build 463).</p>
 
 
 </section>
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Blog Post 5" data-listing-date-sort="1731128400000" data-listing-file-modified-sort="1731193601985" data-listing-date-modified-sort="1731128400000" data-listing-reading-time-sort="15" data-listing-word-count-sort="2892">
-<div class="thumbnail">
-<p><a href="./posts/2024-11-09-blog-post-5/blog-post-5.html" class="no-external"></a></p><a href="./posts/2024-11-09-blog-post-5/blog-post-5.html" class="no-external">
-<p class="card-img-top"><img src="posts/2024-11-09-blog-post-5/blog-post-5_files/figure-html/unnamed-chunk-3-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2024-11-09-blog-post-5/blog-post-5.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-11-09-blog-post-5/blog-post-5.html" class="no-external">Blog Post 5</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-11-09-blog-post-5/blog-post-5.html" class="no-external">Incorporating Additional Datasets for Extended Analysis</a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Blog Post 5'); return false;">
-Blog Post 5
-</div>
-</div>
-<div class="listing-description">
-<p><a href="./posts/2024-11-09-blog-post-5/blog-post-5.html" class="no-external">Data Link: https://www.kaggle.com/datasets/konradb/prison-population-in-the-us?select=populations_states.csv</a></p><a href="./posts/2024-11-09-blog-post-5/blog-post-5.html" class="no-external">
-Additional Datasets: (https://data.ca.gov/dataset/monthly-admissions-and-releases) (https://www.mass.gov/info-details/cross-tracking-system-state-county-correctional-populations) (https://usafacts.org/data/topics/people-society/population-and-demographics/our-changing-population/state/california/?endDate=2020-01-01&amp;startDate=2019-01-01) </a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-11-09-blog-post-5/blog-post-5.html" class="no-external">
-<div class="listing-date">
-Nov 9, 2024
-</div>
-<div class="listing-author">
-Group 10
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Blog Post 4" data-listing-date-sort="1730520000000" data-listing-file-modified-sort="1730583012605" data-listing-date-modified-sort="1730520000000" data-listing-reading-time-sort="13" data-listing-word-count-sort="2421">
-<div class="thumbnail">
-<p><a href="./posts/2024-11-02-blog-post-4/blog-post-4.html" class="no-external"></a></p><a href="./posts/2024-11-02-blog-post-4/blog-post-4.html" class="no-external">
-<p class="card-img-top"><img src="posts/2024-11-02-blog-post-4/blog-post-4_files/figure-html/unnamed-chunk-2-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2024-11-02-blog-post-4/blog-post-4.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-11-02-blog-post-4/blog-post-4.html" class="no-external">Blog Post 4</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-11-02-blog-post-4/blog-post-4.html" class="no-external">Phase 2 of the EDA, and Data Modelling</a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Blog Post 4'); return false;">
-Blog Post 4
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-11-02-blog-post-4/blog-post-4.html" class="no-external">Data Link: https://www.kaggle.com/datasets/konradb/prison-population-in-the-us?select=populations_states.csv </a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-11-02-blog-post-4/blog-post-4.html" class="no-external">
-<div class="listing-date">
-Nov 2, 2024
-</div>
-<div class="listing-author">
-Group 10
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Blog Post 3" data-listing-date-sort="1729656000000" data-listing-file-modified-sort="1729976052318" data-listing-date-modified-sort="1729656000000" data-listing-reading-time-sort="14" data-listing-word-count-sort="2641">
-<div class="thumbnail">
-<p><a href="./posts/2024-10-23-blog-post-3/blog_post3.html" class="no-external"></a></p><a href="./posts/2024-10-23-blog-post-3/blog_post3.html" class="no-external">
-<p class="card-img-top"><img src="posts/2024-10-23-blog-post-3/blog_post3_files/figure-html/unnamed-chunk-3-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2024-10-23-blog-post-3/blog_post3.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-10-23-blog-post-3/blog_post3.html" class="no-external">Blog Post 3</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-10-23-blog-post-3/blog_post3.html" class="no-external">Phase 1 of the EDA</a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Blog Post 3'); return false;">
-Blog Post 3
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-10-23-blog-post-3/blog_post3.html" class="no-external">Data Link: https://www.kaggle.com/datasets/konradb/prison-population-in-the-us?select=populations_states.csv </a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-10-23-blog-post-3/blog_post3.html" class="no-external">
-<div class="listing-date">
-Oct 23, 2024
-</div>
-<div class="listing-author">
-Group 10
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Blog Post 2" data-listing-date-sort="1729224000000" data-listing-file-modified-sort="1729691513495" data-listing-date-modified-sort="1729224000000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1205">
-<div class="thumbnail">
-<p><a href="./posts/2024-10-18-blog-post-2/blog-post-2.html" class="no-external"></a></p><a href="./posts/2024-10-18-blog-post-2/blog-post-2.html" class="no-external">
-<p class="card-img-top"><img src="posts/2024-10-18-blog-post-2/blog-post-2_files/figure-html/unnamed-chunk-10-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2024-10-18-blog-post-2/blog-post-2.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-10-18-blog-post-2/blog-post-2.html" class="no-external">Blog Post 2</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-10-18-blog-post-2/blog-post-2.html" class="no-external">Progress Discussion and Dataset Investigating</a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Blog Post 2'); return false;">
-Blog Post 2
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-10-18-blog-post-2/blog-post-2.html" class="no-external">Data Link: https://www.kaggle.com/datasets/konradb/prison-population-in-the-us?select=populations_states.csv </a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-10-18-blog-post-2/blog-post-2.html" class="no-external">
-<div class="listing-date">
-Oct 18, 2024
-</div>
-<div class="listing-author">
-Group 10
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="Blog Post 1" data-listing-date-sort="1728446400000" data-listing-file-modified-sort="1729258675132" data-listing-date-modified-sort="1728446400000" data-listing-reading-time-sort="3" data-listing-word-count-sort="413">
-<div class="thumbnail">
-<p><a href="./posts/2024-10-09-blog-post-1/blog-post-1.html" class="no-external"></a></p><a href="./posts/2024-10-09-blog-post-1/blog-post-1.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2024-10-09-blog-post-1/blog-post-1.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-10-09-blog-post-1/blog-post-1.html" class="no-external">Blog Post 1</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-10-09-blog-post-1/blog-post-1.html" class="no-external">Three Initial Datasets are chosen</a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Blog Post 1'); return false;">
-Blog Post 1
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-10-09-blog-post-1/blog-post-1.html" class="no-external">Dataset Link: https://www.kaggle.com/datasets/azizozmen/police-killings-us</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-10-09-blog-post-1/blog-post-1.html" class="no-external">
-<div class="listing-date">
-Oct 9, 2024
-</div>
-<div class="listing-author">
-Group_10
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="" data-listing-date-sort="1708923600000" data-listing-file-modified-sort="1728307514487" data-listing-date-modified-sort="1708923600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="56">
-<div class="thumbnail">
-<p><a href="./posts/2023-12-20-examples/examples.html" class="no-external"></a></p><a href="./posts/2023-12-20-examples/examples.html" class="no-external">
-<p class="card-img-top"><img src="posts/2023-12-20-examples/examples_files/figure-html/unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2023-12-20-examples/examples.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2023-12-20-examples/examples.html" class="no-external">Examples</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2023-12-20-examples/examples.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-</div>
-<div class="listing-description">
-<a href="./posts/2023-12-20-examples/examples.html" class="no-external">Here are some examples of changing the size of a figure.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2023-12-20-examples/examples.html" class="no-external">
-<div class="listing-date">
-Feb 26, 2024
-</div>
-<div class="listing-author">
-Daniel Sussman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="" data-listing-date-sort="1708664400000" data-listing-file-modified-sort="1728307514487" data-listing-date-modified-sort="1708664400000" data-listing-reading-time-sort="3" data-listing-word-count-sort="402">
-<div class="thumbnail">
-<p><a href="./posts/2023-10-15-getting-started/getting-started.html" class="no-external"></a></p><a href="./posts/2023-10-15-getting-started/getting-started.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2023-10-15-getting-started/getting-started.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2023-10-15-getting-started/getting-started.html" class="no-external">Getting started</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2023-10-15-getting-started/getting-started.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-</div>
-<div class="listing-description">
-<a href="./posts/2023-10-15-getting-started/getting-started.html" class="no-external">Directions to set up your website and create your first post. </a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2023-10-15-getting-started/getting-started.html" class="no-external">
-<div class="listing-date">
-Feb 23, 2024
-</div>
-<div class="listing-author">
-Daniel Sussman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="" data-listing-date-sort="1708491600000" data-listing-file-modified-sort="1728307514487" data-listing-date-modified-sort="1708491600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="404">
-<div class="thumbnail">
-<p><a href="./posts/2023-10-13-first-team-meeting/first-team-meeting.html" class="no-external"></a></p><a href="./posts/2023-10-13-first-team-meeting/first-team-meeting.html" class="no-external">
-<p><img src="./posts/2023-10-13-first-team-meeting/a-business-team-giving-fist-bump-in-agreement.jpg" class="thumbnail-image"></p>
-</a><p><a href="./posts/2023-10-13-first-team-meeting/first-team-meeting.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2023-10-13-first-team-meeting/first-team-meeting.html" class="no-external">First Team Meeting</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2023-10-13-first-team-meeting/first-team-meeting.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-</div>
-<div class="listing-description">
-<a href="./posts/2023-10-13-first-team-meeting/first-team-meeting.html" class="no-external">This post details the steps you’ll take for your first team meeting. </a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2023-10-13-first-team-meeting/first-team-meeting.html" class="no-external">
-<div class="listing-date">
-Feb 21, 2024
-</div>
-<div class="listing-author">
-Daniel Sussman
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> 
+  <hr class="about-sep">
+   <div class="about-links">
+  <a href="https://github.com/sussmanbu/" class="about-link" rel="" target="">
+    <i class="bi bi-github"></i>
+     <span class="about-link-text">Github</span>
+  </a>
+</div>
+</div>
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -495,13 +168,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
@@ -556,7 +222,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/sussmanbu\.github\.io\/ma-4615-fa24-final-project-group\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

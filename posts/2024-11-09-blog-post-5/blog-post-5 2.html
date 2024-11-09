@@ -153,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Blog Post 5</h1>
-            <p class="subtitle lead">Incorporating Additional Datasets for Extended Analysis</p>
+            <p class="subtitle lead">Multiple Datasets</p>
                   <div>
         <div class="description">
           <p>Data Link: https://www.kaggle.com/datasets/konradb/prison-population-in-the-us?select=populations_states.csv</p>
@@ -601,7 +601,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/sussmanbu\.github\.io\/ma-4615-fa24-final-project-group\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
