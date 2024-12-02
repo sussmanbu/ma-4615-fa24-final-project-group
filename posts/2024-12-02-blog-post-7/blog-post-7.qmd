@@ -1,0 +1,17 @@
+---
+title: "Blog Post 7"
+subtitle: " "
+description:  |
+  Data Link:
+  https://www.kaggle.com/datasets/konradb/prison-population-in-the-us?select=populations_states.csv
+ 
+  (https://data.ca.gov/dataset/monthly-admissions-and-releases)
+  (https://www.mass.gov/info-details/cross-tracking-system-state-county-correctional-populations)
+  (https://usafacts.org/data/topics/people-society/population-and-demographics/our-changing-population/state/california/?endDate=2020-01-01&startDate=2019-01-01)
+  (https://www.kaggle.com/datasets/meongsuzacklee/california-covid-19-data)
+author: "Group 10"
+date: "2024-12-02"
+categories: [Blog Post 7]
+date-modified: "2024-12-02"
+draft: FALSE
+---
