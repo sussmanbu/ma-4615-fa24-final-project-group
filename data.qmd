@@ -7,64 +7,159 @@ draft: false
 
 ![](images/data-import-cheatsheet-thumbs.png)
 
+# Data Background
 
-This comes from the file `data.qmd`.
+## Data Source
 
-Your first steps in this project will be to find data to work on.
+### Data Set 1: Admissions and Releases 
+The dataset can be accessed from the following sources:
+ 
+- **Original source:** [Kaggle repository](https://www.kaggle.com/datasets/konradb/prison-population-in-the-us?select=populations_states.csv)
+- **Article discussing the dataset:** [Nature article](https://www.nature.com/articles/s41586-023-05980-2)
+ 
+This dataset focuses on the U.S. prison population, specifically examining the effects of the COVID-19 pandemic on racial disparities in incarceration. Collected as part of the study “COVID-19 Amplified Racial Disparities in the US Criminal Legal System”, it includes data on prison admissions and releases, broken down by race, across various states. Despite an overall decrease in the prison population during the pandemic, the proportion of Black and Latino prisoners increased. The dataset was gathered to understand how the pandemic exacerbated racial inequalities in the criminal justice system. The data is available on Kaggle and was discussed in a Nature article. Our focus is on analyzing data from 2019 to 2022, especially the long-term trends in admissions and releases, and how these trends relate to the pandemic's impact on racial disparities.
+ 
+ 
+### Data Set 2: California Race Population 
+The dataset can be accessed from the following sources:
+ 
+- **Original source:** [US Census Bureau](https://www2.census.gov/programs-surveys/popest/)
+- **Article discussing the dataset:** [USA Facts website](https://usafacts.org/data/topics/people-society/population-and-demographics/our-changing-population/state/california/?endDate=2020-01-01&startDate=2019-01-01)  
+ 
+This dataset, found on the USA Facts website, uses data from the US Census Bureau and provides insights into California's racial and ethnic demographics throughout the years. It helps us understand how the state’s population has shifted over time, particularly focusing on changes in the population size of different racial groups. Notably, in 2021, the largest racial or ethnic group in California was Hispanic/Latino, with a population of 15.7 million. Between 2019 and 2021, the Hispanic/Latino population saw the most growth, increasing by 190,640 individuals, from 15.5 million in 2019 to 15.7 million in 2021. The dataset categorizes the population by race—White, Black, Hispanic, American Indian, Asian, and Other—allowing for a comparison across the different groups. This data provides valuable context for understanding demographic trends and shifts in California during this period.
+ 
+ 
+### Data Set 3: California Monthly Admissions and Releases 
+The dataset can be accessed from the following source:
+ 
+- **Original source:** [California Open Data Portal](https://data.ca.gov/dataset/monthly-admissions-and-releases)
+ 
+This dataset, available on the California Open Data Portal, tracks the total number of individuals admitted to and released from CDCR custody on a monthly basis, starting from January 31, 2014, to the present. It includes monthly data on total admissions, total releases, and yearly net changes. The data is collected every month, allowing for an in-depth analysis of trends in the state's prison population over time. This dataset provides valuable insights into the dynamics of prison admissions and releases, helping to understand shifts in California’s incarceration rates.
+ 
+ 
+### Data Set 4: California COVID-19 Data 
+The dataset can be accessed from the following source:
+ 
+- **Original source:** [Kaggle repository](https://www.kaggle.com/datasets/meongsuzacklee/california-covid-19-data)
+ 
+The California COVID-19 dataset, found on Kaggle, covers the period from January 2020 to August 2023. It includes data from all counties in California, capturing COVID-19 cases and deaths, as well as population data for each county and the state as a whole. This dataset provides a comprehensive view of the pandemic's impact across California, including how the number of cases and deaths varied over time and how these factors might influence the state's prison composition.
 
-I recommend trying to find data that interests you and that you are knowledgeable about. A bad example would be if you have no interest in video games but your data set is about video games. I also recommend finding data that is related to current events, social justice, and other areas that have an impact.
+# Data Cleaning
 
+[Link to the load_and_clean_data.R](scripts/load_and_clean_data.R)
 
-Initially, you will study _one dataset_ but later you will need to combine that data with another dataset. For this reason, I recommend finding data that has some date and/or location components. These types of data are conducive to interesting visualizations and analysis and you can also combine this data with other data that also has a date or location variable.
-Data from the census, weather data, economic data, are all relatively easy to combine with other data with time/location components.
+We cleaned our dataset with the following steps:
 
+## Loading the Data
 
-## What makes a good data set?
-
-* Data you are interested in and care about.
-* Data where there are a lot of potential questions that you can explore.
-* A data set that isn't completely cleaned already.
-* Multiple sources for data that you can combine.
-* Some type of time and/or location component.
-
-
-## Where to keep data?
-
-
-Below 50mb: In `dataset` folder
-
-Above 50mb: In `dataset_ignore` folder. This folder will be ignored by `git` so you'll have to manually sync these files across your team.
-
-### Sharing your data
-
-
-For small datasets (<50mb), you can use the `dataset` folder that is tracked by github. Add the files just like you would any other file.
-
-If you create a folder named `data` this will cause problems.
-
-For larger datasets, you'll need to create a new folder in the project root directory named `dataset-ignore`. This will be ignored by git (based off the `.gitignore` file in the project root directory) which will help you avoid issues with Github's size limits. Your team will have to manually make sure the data files in `dataset-ignore` are synced across team members.
-
-Your [load_and_clean_data.R](/scripts/load_and_clean_data.R) file is how you will load and clean your data. Here is a an example of a very simple one.
+- **Loading the dataset**: The dataset was read into R using the `read.csv()` function.
 
 ```{r}
-source(
-  "scripts/load_and_clean_data.R",
-  echo = TRUE # Use echo=FALSE or omit it to avoid code output  
-)
+# Load the dataset
+library(readr)
+df <- read.csv("admissions_releases_states.csv")
 ```
-You should never use absolute paths (eg. `/Users/danielsussman/path/to/project/` or `C:\MA415\\Final_Project\`).
 
-You might consider using the `here` function from the [`here` package](https://here.r-lib.org/articles/here.html) to avoid path problems.
+- **Checking the structure**: We used the str() function to inspect the structure of the dataset.
 
-### Load and clean data script
+```{r}
+str(df)
+```
+## Cleaning Steps
 
-The idea behind this file is that someone coming to your website could largely replicate your analyses after running this script on the original data sets to clean them.
-This file might create a derivative data set that you then use for your subsequent analysis.
-Note that you don't need to run this script from every post/page.
-Instead, you can load in the results of this script, which could be plain text files or `.RData` files. In your data page you'll describe how these results were created. If you have a very large data set, you might save smaller data sets that you can use for exploration purposes.
-To link to this file, you can use `[cleaning script](/scripts/load_and_clean_data.R)` wich appears as [cleaning script](/scripts/load_and_clean_data.R). 
+1. **Date Conversion**
 
-----
+We converted the date column from character format to Date format for easier temporal analysis.
+
+```{r}
+df$date <- as.Date(df$date, format = "%Y-%m-%d")
+```
+
+2. **Variable Renaming**
+
+To improve readability, variable names were renamed using the rename() function from dplyr.
+
+```{r}
+library(dplyr)
+data <- df %>%
+  rename(
+    Date = date,
+    Total_Admissions = admissions_total,
+    White_Admissions = admissions_white,
+    Black_Admissions = admissions_black,
+    Hispanic_Admissions = admissions_hispanic,
+    AmericanIndian_Admissions = admissions_amerind,
+    Asian_Admissions = admissions_asian,
+    Other_Admissions = admissions_other,
+    Total_Releases = releases_total,
+    White_Releases = releases_white,
+    Black_Releases = releases_black,
+    Hispanic_Releases = releases_hispanic,
+    AmericanIndian_Releases = releases_amerind,
+    Asian_Releases = releases_asian,
+    Other_Releases = releases_other,
+    State = state
+  )
+```
+
+3. **Handling Missing Values**
+
+Missing values were identified and summarized using the sapply() function.
+
+```{r}
+missing_values <- sapply(data, function(x) sum(is.na(x)))
+print(missing_values)
+```
+
+4. **Removing Duplicate Rows**
+
+We used the distinct() function to remove duplicate rows and ensure data uniqueness.
+
+```{r}
+data <- data %>% distinct()
+```
+
+5. **Summarizing Key**
+
+We calculated total admissions and releases by race for the entire dataset using the summarise() function
+
+```{r}
+admissions_totals <- data %>%
+  summarise(
+    Total_White_Admissions = sum(White_Admissions, na.rm = TRUE),
+    Total_Black_Admissions = sum(Black_Admissions, na.rm = TRUE),
+    Total_Hispanic_Admissions = sum(Hispanic_Admissions, na.rm = TRUE),
+    Total_AmericanIndian_Admissions = sum(AmericanIndian_Admissions, na.rm = TRUE),
+    Total_Asian_Admissions = sum(Asian_Admissions, na.rm = TRUE),
+    Total_Other_Admissions = sum(Other_Admissions, na.rm = TRUE)
+  )
+```
+
+Similarly, we summarized total releases:
+
+```{r}
+releases_totals <- data %>%
+  summarise(
+    Total_White_Releases = sum(White_Releases, na.rm = TRUE),
+    Total_Black_Releases = sum(Black_Releases, na.rm = TRUE),
+    Total_Hispanic_Releases = sum(Hispanic_Releases, na.rm = TRUE),
+    Total_AmericanIndian_Releases = sum(AmericanIndian_Releases, na.rm = TRUE),
+    Total_Asian_Releases = sum(Asian_Releases, na.rm = TRUE),
+    Total_Other_Releases = sum(Other_Releases, na.rm = TRUE)
+  )
+```
+
+6. **Saving the Cleaned Data**
+
+The cleaned dataset was saved as an RDS file for efficient reuse in further analysis.
+
+```{r}
+saveRDS(data, "dataset/cleaned_dataset.rds")
+```
+
+
+
+
 
 ## Rubric: On this page
 

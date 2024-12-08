@@ -1,6 +1,6 @@
 ---
 title: "Blog Post 7"
-subtitle: " "
+subtitle: "Next step"
 description:  |
   Data Link:
   https://www.kaggle.com/datasets/konradb/prison-population-in-the-us?select=populations_states.csv
@@ -10,8 +10,25 @@ description:  |
   (https://usafacts.org/data/topics/people-society/population-and-demographics/our-changing-population/state/california/?endDate=2020-01-01&startDate=2019-01-01)
   (https://www.kaggle.com/datasets/meongsuzacklee/california-covid-19-data)
 author: "Group 10"
-date: "2024-12-02"
+date: "2024-12-08"
 categories: [Blog Post 7]
-date-modified: "2024-12-02"
+date-modified: "2024-12-08"
 draft: FALSE
 ---
+
+In our previous six blog posts, we delved into key trends in admissions and releases within California's prison population, with a particular emphasis on the effects of the COVID-19 pandemic. For our seventh blog post, we are expanding the scope of our analysis. This time, we are incorporating data from the U.S. counties COVID-19 dataset, sourced from the New York Times GitHub repository, to extend our focus beyond California.
+Rather than concentrating solely on California, we will examine all 18 states represented in the original prison population dataset, including Massachusetts, Texas, and California. Our objective is to analyze the trends in COVID-19 cases and deaths across these states and investigate potential correlations with prison population dynamics. By broadening our perspective, we aim to provide deeper insights into the intersection of pandemic trends and incarceration across a diverse range of regions.
+ 
+ 
+To ensure accuracy, relevance, and alignment between datasets, we applied comprehensive data cleaning and preparation steps. First, the "fips" column was removed as it was not pertinent to our analysis. The data was grouped by state to simplify trend interpretation, and values for cases and deaths during the pre-COVID era were set to zero, reflecting the absence of reported infections at that time. These adjustments streamlined the dataset, making it more suitable for analysis.
+ 
+ 
+The COVID-19 dataset was filtered to include only California data and aggregated to calculate monthly increments of cases and deaths. This ensured alignment with the prison admissions and releases dataset, which also operates on a monthly basis. Similarly, the admissions dataset was filtered for California and restricted to the period from January 1, 2019, to December 31, 2021, to ensure consistency with the COVID-19 dataset and capture both pre-pandemic and pandemic trends.
+To create a unified structure, data from both datasets were aggregated at the month level using the floor_date() function from the lubridate package, enabling consistent summarization and allowing the datasets to be joined on a shared time column (year_month). A complete sequence of months from January 2019 to December 2021 was generated to ensure all months were included, even those without data in one or both datasets.
+Two full joins were performed to merge the datasets. The first joined the timeline with the aggregated COVID-19 data, adding monthly cases and deaths. The second joined this result with the prison admissions and releases data, incorporating monthly totals for these metrics. Full joins ensured that no months were excluded, even when data was missing in one of the datasets.
+After the joins, missing values were replaced with zeros, addressing months with no recorded COVID-19 cases, deaths, admissions, or releases. These data cleaning and preparation steps ensured the final dataset was clean, complete, temporally aligned, and ready for analysis, effectively integrating trends in COVID-19 and prison population dynamics.
+
+Our tentative thesis is that “The Covid-19 Pandemic impacted prison composition, decreasing prison enrollment and increasing prison release. It supports the data analysis that we have done as of all the previous blog posts. We kept to our original dataset of prison population, and then we gathered a new dataset that gathers the covid data of cases and deaths to help us further understand the impact covid had on the prison population.
+
+We've already done an excellent job with our visualizations and tables. Our titles and captions are clear and informative, guiding the audience through the key takeaways. The thoughtful use of annotations and highlights ensures that important data points stand out. Additionally, our attention to consistent color schemes, clean layouts, and appropriate axis labels enhances the clarity and impact of our presentation. These elements work together to effectively communicate our analysis results in a polished and engaging way.
+
