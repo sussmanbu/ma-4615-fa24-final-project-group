@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.555">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Group 10">
+<meta name="dcterms.date" content="2024-12-08">
+<meta name="description" content="Data Link: https://www.kaggle.com/datasets/konradb/prison-population-in-the-us?select=populations_states.csv(https://data.ca.gov/dataset/monthly-admissions-and-releases) (https://www.mass.gov/info-details/cross-tracking-system-state-county-correctional-populations) (https://usafacts.org/data/topics/people-society/population-and-demographics/our-changing-population/state/california/?endDate=2020-01-01&amp;startDate=2019-01-01) (https://www.kaggle.com/datasets/meongsuzacklee/california-covid-19-data)">
+
+<title>MA [46]15 Final Project: Group 10 - Blog Post 7</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">MA [46]15 Final Project: Group 10</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">MA [46]15 Final Project: Group 10</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../big_picture.html"> 
+<span class="menu-text">Big Picture</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../analysis.html"> 
+<span class="menu-text">Analysis</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../data.html"> 
+<span class="menu-text">Data</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Blog Post 7</h1>
+            <p class="subtitle lead">Combination and modeling</p>
+                  <div>
+        <div class="description">
+          <p>Data Link: https://www.kaggle.com/datasets/konradb/prison-population-in-the-us?select=populations_states.csv</p>
+          <p>(https://data.ca.gov/dataset/monthly-admissions-and-releases) (https://www.mass.gov/info-details/cross-tracking-system-state-county-correctional-populations) (https://usafacts.org/data/topics/people-society/population-and-demographics/our-changing-population/state/california/?endDate=2020-01-01&amp;startDate=2019-01-01) (https://www.kaggle.com/datasets/meongsuzacklee/california-covid-19-data)</p>
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Blog Post 7</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Group 10 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 8, 2024</p>
+      </div>
+    </div>
+    
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">December 8, 2024</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>In our previous six blog posts, we delved into key trends in admissions and releases within California’s prison population, with a particular emphasis on the effects of the COVID-19 pandemic. For our seventh blog post, we are expanding the scope of our analysis. This time, we are incorporating data from the U.S. counties COVID-19 dataset, sourced from the New York Times GitHub repository, to extend our focus beyond California. Rather than concentrating solely on California, we will examine all 18 states represented in the original prison population dataset, including Massachusetts, Texas, and California. Our objective is to analyze the trends in COVID-19 cases and deaths across these states and investigate potential correlations with prison population dynamics. By broadening our perspective, we aim to provide deeper insights into the intersection of pandemic trends and incarceration across a diverse range of regions.</p>
+<p>To ensure accuracy, relevance, and alignment between datasets, we applied comprehensive data cleaning and preparation steps. First, the “fips” column was removed as it was not pertinent to our analysis. The data was grouped by state to simplify trend interpretation, and values for cases and deaths during the pre-COVID era were set to zero, reflecting the absence of reported infections at that time. These adjustments streamlined the dataset, making it more suitable for analysis.</p>
+<p>The COVID-19 dataset was filtered to include only California data and aggregated to calculate monthly increments of cases and deaths. This ensured alignment with the prison admissions and releases dataset, which also operates on a monthly basis. Similarly, the admissions dataset was filtered for California and restricted to the period from January 1, 2019, to December 31, 2021, to ensure consistency with the COVID-19 dataset and capture both pre-pandemic and pandemic trends. To create a unified structure, data from both datasets were aggregated at the month level using the floor_date() function from the lubridate package, enabling consistent summarization and allowing the datasets to be joined on a shared time column (year_month). A complete sequence of months from January 2019 to December 2021 was generated to ensure all months were included, even those without data in one or both datasets. Two full joins were performed to merge the datasets. The first joined the timeline with the aggregated COVID-19 data, adding monthly cases and deaths. The second joined this result with the prison admissions and releases data, incorporating monthly totals for these metrics. Full joins ensured that no months were excluded, even when data was missing in one of the datasets. After the joins, missing values were replaced with zeros, addressing months with no recorded COVID-19 cases, deaths, admissions, or releases. These data cleaning and preparation steps ensured the final dataset was clean, complete, temporally aligned, and ready for analysis, effectively integrating trends in COVID-19 and prison population dynamics.</p>
+<p>Continuing the modeling process involves refining the current approach, exploring alternative models, and integrating additional data to capture more dimensions of the problem. Here’s how we would be advancing the analysis, it includes incorporating more variables and expanding data sources. Adding data on state-specific interventions, such as lockdowns or changes in incarceration policies, could illuminate how external measures impacted prison admissions and releases. Also, Including data on vaccination rates or testing rates may explain variations in COVID-19 trends and their impact on prison populations. Incorporating demographic data, such as age, gender, and race within the prison population, could help identify subgroup-specific effects of the pandemic. Exploring links between economic stressors (e.g., unemployment rates, eviction rates) and prison admissions during the pandemic might reveal hidden relationships.</p>
+<p>Our tentative thesis is that “The Covid-19 Pandemic impacted prison composition, decreasing prison enrollment and increasing prison release. It supports the data analysis that we have done as of all the previous blog posts. We kept to our original dataset of prison population, and then we gathered a new dataset that gathers the covid data of cases and deaths to help us further understand the impact covid had on the prison population.</p>
+<p>We’ve already done an excellent job with our visualizations and tables. Our titles and captions are clear and informative, guiding the audience through the key takeaways. The thoughtful use of annotations and highlights ensures that important data points stand out. Additionally, our attention to consistent color schemes, clean layouts, and appropriate axis labels enhances the clarity and impact of our presentation. These elements work together to effectively communicate our analysis results in a polished and engaging way.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.4.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'lubridate'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>states_to_keep <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Arizona"</span>, <span class="st">"Maine"</span>, <span class="st">"Washington"</span>, <span class="st">"Wisconsin"</span>, <span class="st">"West Virginia"</span>, </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Utah"</span>, <span class="st">"Texas"</span>, <span class="st">"Oregon"</span>, <span class="st">"Nebraska"</span>, <span class="st">"Montana"</span>, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Massachusetts"</span>, <span class="st">"Kentucky"</span>, <span class="st">"Kansas"</span>, <span class="st">"Iowa"</span>, <span class="st">"Illinois"</span>, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Idaho"</span>, <span class="st">"Colorado"</span>, <span class="st">"California"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>nyt_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"dataset/us-counties.csv"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>nyt_data<span class="sc">$</span>date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(nyt_data<span class="sc">$</span>date)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>nyt_data_filtered <span class="ot">&lt;-</span> nyt_data <span class="sc">%&gt;%</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">%in%</span> states_to_keep)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>monthly_cumulative <span class="ot">&lt;-</span> nyt_data_filtered <span class="sc">%&gt;%</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_month =</span> <span class="fu">floor_date</span>(date, <span class="st">"month"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state, county, year_month) <span class="sc">%&gt;%</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_cases =</span> <span class="fu">max</span>(cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_deaths =</span> <span class="fu">max</span>(deaths, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>monthly_increments <span class="ot">&lt;-</span> monthly_cumulative <span class="sc">%&gt;%</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(state, county, year_month) <span class="sc">%&gt;%</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state, county) <span class="sc">%&gt;%</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">monthly_new_cases =</span> max_cases <span class="sc">-</span> <span class="fu">lag</span>(max_cases, <span class="dv">1</span>),</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">monthly_new_deaths =</span> max_deaths <span class="sc">-</span> <span class="fu">lag</span>(max_deaths, <span class="dv">1</span>)</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>monthly_increments<span class="sc">$</span>monthly_new_cases[<span class="fu">is.na</span>(monthly_increments<span class="sc">$</span>monthly_new_cases)] <span class="ot">&lt;-</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  monthly_increments<span class="sc">$</span>max_cases[<span class="fu">is.na</span>(monthly_increments<span class="sc">$</span>monthly_new_cases)]</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>monthly_increments<span class="sc">$</span>monthly_new_deaths[<span class="fu">is.na</span>(monthly_increments<span class="sc">$</span>monthly_new_deaths)] <span class="ot">&lt;-</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>  monthly_increments<span class="sc">$</span>max_deaths[<span class="fu">is.na</span>(monthly_increments<span class="sc">$</span>monthly_new_deaths)]</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>monthly_covid <span class="ot">&lt;-</span> monthly_increments <span class="sc">%&gt;%</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year_month) <span class="sc">%&gt;%</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_monthly_cases =</span> <span class="fu">sum</span>(monthly_new_cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_monthly_deaths =</span> <span class="fu">sum</span>(monthly_new_deaths, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"dataset/cleaned_dataset.rds"</span>)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(data<span class="sc">$</span>Date)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>data_filtered <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(State <span class="sc">%in%</span> states_to_keep,</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>         date <span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">"2019-01-01"</span>) <span class="sc">&amp;</span> date <span class="sc">&lt;</span> <span class="fu">as.Date</span>(<span class="st">"2022-01-01"</span>))</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>admissions_monthly <span class="ot">&lt;-</span> data_filtered <span class="sc">%&gt;%</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_month =</span> <span class="fu">floor_date</span>(date, <span class="at">unit =</span> <span class="st">"month"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year_month) <span class="sc">%&gt;%</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">monthly_admissions =</span> <span class="fu">sum</span>(Total_Admissions, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">monthly_releases =</span> <span class="fu">sum</span>(Total_Releases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>all_months <span class="ot">&lt;-</span> <span class="fu">seq.Date</span>(<span class="at">from =</span> <span class="fu">as.Date</span>(<span class="st">"2019-01-01"</span>), <span class="at">to =</span> <span class="fu">as.Date</span>(<span class="st">"2021-12-01"</span>), <span class="at">by =</span> <span class="st">"month"</span>)</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>all_months_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">year_month =</span> all_months)</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>model_data <span class="ot">&lt;-</span> all_months_df <span class="sc">%&gt;%</span></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(monthly_covid, <span class="at">by =</span> <span class="st">"year_month"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(admissions_monthly, <span class="at">by =</span> <span class="st">"year_month"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year_month <span class="sc">&lt;</span> <span class="fu">as.Date</span>(<span class="st">"2022-01-01"</span>))</span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>model_data <span class="ot">&lt;-</span> model_data <span class="sc">%&gt;%</span></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_monthly_cases =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(total_monthly_cases), <span class="dv">0</span>, total_monthly_cases),</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_monthly_deaths =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(total_monthly_deaths), <span class="dv">0</span>, total_monthly_deaths),</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">monthly_admissions =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(monthly_admissions), <span class="dv">0</span>, monthly_admissions),</span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">monthly_releases =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(monthly_releases), <span class="dv">0</span>, monthly_releases))</span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>model_states <span class="ot">&lt;-</span> <span class="fu">lm</span>(monthly_admissions<span class="sc">~</span> total_monthly_cases <span class="sc">*</span> total_monthly_deaths, <span class="at">data =</span> model_data)</span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_states)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = monthly_admissions ~ total_monthly_cases * total_monthly_deaths, 
+    data = model_data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-7839.9 -1305.6   527.5  1803.6  5286.2 
+
+Coefficients:
+                                           Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)                               1.723e+04  8.026e+02  21.467  &lt; 2e-16
+total_monthly_cases                      -6.315e-04  1.646e-03  -0.384 0.703804
+total_monthly_deaths                     -4.819e-01  1.190e-01  -4.051 0.000303
+total_monthly_cases:total_monthly_deaths  1.212e-07  5.410e-08   2.239 0.032203
+                                            
+(Intercept)                              ***
+total_monthly_cases                         
+total_monthly_deaths                     ***
+total_monthly_cases:total_monthly_deaths *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3284 on 32 degrees of freedom
+Multiple R-squared:  0.495, Adjusted R-squared:  0.4476 
+F-statistic: 10.45 on 3 and 32 DF,  p-value: 5.987e-05</code></pre>
+</div>
+</div>
+<p>This linear model examines the relationship between monthly admissions and COVID-19 metrics (cases and deaths) across 18 selected U.S. states. The intercept, around 17,230 (p &lt; 0.001), provides a baseline estimate of admissions when cases and deaths are zero. The coefficient for total_monthly_cases is approximately -0.00063 and is not statistical significant (p ≈ 0.704), implying that the number of monthly cases alone does not have a clear linear influence on admissions in this dataset. In contrast, total_monthly_deaths shows a negative and statistical significant association (coefficient ≈ -0.482, p &lt; 0.001), suggesting that for each increase in monthly deaths, admissions decrease by about 0.48 on average. The interaction term (total_monthly_cases:total_monthly_deaths) is positive and statistical significant (coefficient ≈ 1.21e-07, p ≈ 0.032), indicating that the combined presence of both factors differs from their individual effects. These signs and relationships were expected. From the exploratory data analysis (EDA), we observed a pattern of decreased admissions during the COVID-19 period, so it is reasonable that higher death counts relate to lower admission numbers. Overall, the model explains roughly 49.5% of the variation in monthly admissions, suggesting that while these predictors are informative, other factors also play a role in admission trends.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>model_states <span class="ot">&lt;-</span> <span class="fu">lm</span>(monthly_releases<span class="sc">~</span> total_monthly_cases <span class="sc">*</span> total_monthly_deaths, <span class="at">data =</span> model_data)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_states)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = monthly_releases ~ total_monthly_cases * total_monthly_deaths, 
+    data = model_data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-4454.0  -579.1    -6.0   589.6  6175.4 
+
+Coefficients:
+                                           Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)                               1.911e+04  5.106e+02  37.419   &lt;2e-16
+total_monthly_cases                      -2.765e-03  1.047e-03  -2.640   0.0127
+total_monthly_deaths                     -1.703e-01  7.567e-02  -2.251   0.0314
+total_monthly_cases:total_monthly_deaths  8.543e-08  3.442e-08   2.482   0.0185
+                                            
+(Intercept)                              ***
+total_monthly_cases                      *  
+total_monthly_deaths                     *  
+total_monthly_cases:total_monthly_deaths *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2089 on 32 degrees of freedom
+Multiple R-squared:  0.5223,    Adjusted R-squared:  0.4775 
+F-statistic: 11.66 on 3 and 32 DF,  p-value: 2.517e-05</code></pre>
+</div>
+</div>
+<p>Building on the findings from admissions, we now turn to monthly releases as the dependent variable. Here, the intercept is around 19,110 (p &lt; 0.001), providing a baseline estimate of releases when cases and deaths are zero. For this model, all of the predictors are statistically significant: total_monthly_cases is negative and statistically significant (coefficient ≈ -0.0028, p ≈ 0.013), total_monthly_deaths is also negative and statistically significant (coefficient ≈ -0.170, p ≈ 0.031), and their interaction is positive and statistically significant (coefficient ≈ 8.54e-08, p ≈ 0.019). However, these signs are not what we expected, as the EDA suggested that releases were generally increasing during the COVID-19 period. Although this model explains about 52.2% of the variation in monthly releases, providing evidence that these variables influence release trends, the unexpected direction of these effects indicates that there may be other underlying factors at play and warrants further investigation.</p>
+<p>The fitted model explores the relationship between monthly prison releases and the interaction of total monthly COVID-19 cases and deaths. The intercept, representing the baseline level of monthly releases when both COVID-19 cases and deaths are zero, provides a useful reference point. While a scenario of zero cases and deaths is unlikely within the pandemic context, the intercept offers insight into the baseline dynamics of prison releases in the absence of reported COVID-19 impacts. The p-value for the intercept is exceptionally small, indicating it is highly statistically significant and unlikely to be zero. The model includes an interaction term between total monthly cases and deaths, which allows for the relationship between cases and releases to vary depending on the number of deaths (and vice versa). This approach captures the potential combined impact of both factors on monthly prison releases. The coefficients for the individual terms and their interaction reveal the nuanced relationships between these variables. While individual effects might be significant, the interaction term highlights how the combined influence of cases and deaths modifies the overall pattern. The R2R^2R2 value from the model indicates the proportion of variability in monthly releases explained by total monthly cases, deaths, and their interaction. A moderate R2R^2R2 value suggests that while the model provides some explanatory power, other unmeasured factors likely play a significant role in driving monthly releases. These could include state-specific policies, demographic shifts, or economic conditions. In conclusion, the model identifies meaningful relationships between prison releases, COVID-19 cases, and deaths, highlighting the complexity of their interaction. While statistically significant effects are evident, the results suggest a need for further exploration, possibly incorporating additional variables or more advanced modeling techniques, to fully capture the factors influencing monthly prison releases during the pandemic.</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/sussmanbu\.github\.io\/ma-4615-fa24-final-project-group\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

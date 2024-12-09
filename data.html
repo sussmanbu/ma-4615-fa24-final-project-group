@@ -155,13 +155,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-makes-a-good-data-set" id="toc-what-makes-a-good-data-set" class="nav-link active" data-scroll-target="#what-makes-a-good-data-set">What makes a good data set?</a></li>
-  <li><a href="#where-to-keep-data" id="toc-where-to-keep-data" class="nav-link" data-scroll-target="#where-to-keep-data">Where to keep data?</a>
+  <li><a href="#data-background" id="toc-data-background" class="nav-link active" data-scroll-target="#data-background">Data Background</a>
   <ul class="collapse">
-  <li><a href="#sharing-your-data" id="toc-sharing-your-data" class="nav-link" data-scroll-target="#sharing-your-data">Sharing your data</a></li>
-  <li><a href="#load-and-clean-data-script" id="toc-load-and-clean-data-script" class="nav-link" data-scroll-target="#load-and-clean-data-script">Load and clean data script</a></li>
+  <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source">Data Source</a>
+  <ul class="collapse">
+  <li><a href="#data-set-1-admissions-and-releases" id="toc-data-set-1-admissions-and-releases" class="nav-link" data-scroll-target="#data-set-1-admissions-and-releases">Data Set 1: Admissions and Releases</a></li>
+  <li><a href="#data-set-2-california-race-population" id="toc-data-set-2-california-race-population" class="nav-link" data-scroll-target="#data-set-2-california-race-population">Data Set 2: California Race Population</a></li>
+  <li><a href="#data-set-3-california-monthly-admissions-and-releases" id="toc-data-set-3-california-monthly-admissions-and-releases" class="nav-link" data-scroll-target="#data-set-3-california-monthly-admissions-and-releases">Data Set 3: California Monthly Admissions and Releases</a></li>
+  <li><a href="#data-set-4-california-covid-19-data" id="toc-data-set-4-california-covid-19-data" class="nav-link" data-scroll-target="#data-set-4-california-covid-19-data">Data Set 4: California COVID-19 Data</a></li>
   </ul></li>
+  </ul></li>
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning">Data Cleaning</a>
+  <ul class="collapse">
+  <li><a href="#loading-the-data" id="toc-loading-the-data" class="nav-link" data-scroll-target="#loading-the-data">Loading the Data</a></li>
+  <li><a href="#cleaning-steps" id="toc-cleaning-steps" class="nav-link" data-scroll-target="#cleaning-steps">Cleaning Steps</a></li>
   <li><a href="#rubric-on-this-page" id="toc-rubric-on-this-page" class="nav-link" data-scroll-target="#rubric-on-this-page">Rubric: On this page</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -193,82 +202,201 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><img src="images/data-import-cheatsheet-thumbs.png" class="img-fluid"></p>
-<p>This comes from the file <code>data.qmd</code>.</p>
-<p>Your first steps in this project will be to find data to work on.</p>
-<p>I recommend trying to find data that interests you and that you are knowledgeable about. A bad example would be if you have no interest in video games but your data set is about video games. I also recommend finding data that is related to current events, social justice, and other areas that have an impact.</p>
-<p>Initially, you will study <em>one dataset</em> but later you will need to combine that data with another dataset. For this reason, I recommend finding data that has some date and/or location components. These types of data are conducive to interesting visualizations and analysis and you can also combine this data with other data that also has a date or location variable. Data from the census, weather data, economic data, are all relatively easy to combine with other data with time/location components.</p>
-<section id="what-makes-a-good-data-set" class="level2">
-<h2 class="anchored" data-anchor-id="what-makes-a-good-data-set">What makes a good data set?</h2>
+<section id="data-background" class="level1">
+<h1>Data Background</h1>
+<section id="data-source" class="level2">
+<h2 class="anchored" data-anchor-id="data-source">Data Source</h2>
+<section id="data-set-1-admissions-and-releases" class="level3">
+<h3 class="anchored" data-anchor-id="data-set-1-admissions-and-releases">Data Set 1: Admissions and Releases</h3>
+<p>The dataset can be accessed from the following sources:</p>
 <ul>
-<li>Data you are interested in and care about.</li>
-<li>Data where there are a lot of potential questions that you can explore.</li>
-<li>A data set that isn’t completely cleaned already.</li>
-<li>Multiple sources for data that you can combine.</li>
-<li>Some type of time and/or location component.</li>
+<li><strong>Original source:</strong> <a href="https://www.kaggle.com/datasets/konradb/prison-population-in-the-us?select=populations_states.csv">Kaggle repository</a></li>
+<li><strong>Article discussing the dataset:</strong> <a href="https://www.nature.com/articles/s41586-023-05980-2">Nature article</a></li>
 </ul>
+<p>This dataset focuses on the U.S. prison population, specifically examining the effects of the COVID-19 pandemic on racial disparities in incarceration. Collected as part of the study “COVID-19 Amplified Racial Disparities in the US Criminal Legal System”, it includes data on prison admissions and releases, broken down by race, across various states. Despite an overall decrease in the prison population during the pandemic, the proportion of Black and Latino prisoners increased. The dataset was gathered to understand how the pandemic exacerbated racial inequalities in the criminal justice system. The data is available on Kaggle and was discussed in a Nature article. Our focus is on analyzing data from 2019 to 2022, especially the long-term trends in admissions and releases, and how these trends relate to the pandemic’s impact on racial disparities.</p>
 </section>
-<section id="where-to-keep-data" class="level2">
-<h2 class="anchored" data-anchor-id="where-to-keep-data">Where to keep data?</h2>
-<p>Below 50mb: In <code>dataset</code> folder</p>
-<p>Above 50mb: In <code>dataset_ignore</code> folder. This folder will be ignored by <code>git</code> so you’ll have to manually sync these files across your team.</p>
-<section id="sharing-your-data" class="level3">
-<h3 class="anchored" data-anchor-id="sharing-your-data">Sharing your data</h3>
-<p>For small datasets (&lt;50mb), you can use the <code>dataset</code> folder that is tracked by github. Add the files just like you would any other file.</p>
-<p>If you create a folder named <code>data</code> this will cause problems.</p>
-<p>For larger datasets, you’ll need to create a new folder in the project root directory named <code>dataset-ignore</code>. This will be ignored by git (based off the <code>.gitignore</code> file in the project root directory) which will help you avoid issues with Github’s size limits. Your team will have to manually make sure the data files in <code>dataset-ignore</code> are synced across team members.</p>
-<p>Your <a href="./scripts/load_and_clean_data.R">load_and_clean_data.R</a> file is how you will load and clean your data. Here is a an example of a very simple one.</p>
+<section id="data-set-2-california-race-population" class="level3">
+<h3 class="anchored" data-anchor-id="data-set-2-california-race-population">Data Set 2: California Race Population</h3>
+<p>The dataset can be accessed from the following sources:</p>
+<ul>
+<li><strong>Original source:</strong> <a href="https://www2.census.gov/programs-surveys/popest/">US Census Bureau</a></li>
+<li><strong>Article discussing the dataset:</strong> <a href="https://usafacts.org/data/topics/people-society/population-and-demographics/our-changing-population/state/california/?endDate=2020-01-01&amp;startDate=2019-01-01">USA Facts website</a></li>
+</ul>
+<p>This dataset, found on the USA Facts website, uses data from the US Census Bureau and provides insights into California’s racial and ethnic demographics throughout the years. It helps us understand how the state’s population has shifted over time, particularly focusing on changes in the population size of different racial groups. Notably, in 2021, the largest racial or ethnic group in California was Hispanic/Latino, with a population of 15.7 million. Between 2019 and 2021, the Hispanic/Latino population saw the most growth, increasing by 190,640 individuals, from 15.5 million in 2019 to 15.7 million in 2021. The dataset categorizes the population by race—White, Black, Hispanic, American Indian, Asian, and Other—allowing for a comparison across the different groups. This data provides valuable context for understanding demographic trends and shifts in California during this period.</p>
+</section>
+<section id="data-set-3-california-monthly-admissions-and-releases" class="level3">
+<h3 class="anchored" data-anchor-id="data-set-3-california-monthly-admissions-and-releases">Data Set 3: California Monthly Admissions and Releases</h3>
+<p>The dataset can be accessed from the following source:</p>
+<ul>
+<li><strong>Original source:</strong> <a href="https://data.ca.gov/dataset/monthly-admissions-and-releases">California Open Data Portal</a></li>
+</ul>
+<p>This dataset, available on the California Open Data Portal, tracks the total number of individuals admitted to and released from CDCR custody on a monthly basis, starting from January 31, 2014, to the present. It includes monthly data on total admissions, total releases, and yearly net changes. The data is collected every month, allowing for an in-depth analysis of trends in the state’s prison population over time. This dataset provides valuable insights into the dynamics of prison admissions and releases, helping to understand shifts in California’s incarceration rates.</p>
+</section>
+<section id="data-set-4-california-covid-19-data" class="level3">
+<h3 class="anchored" data-anchor-id="data-set-4-california-covid-19-data">Data Set 4: California COVID-19 Data</h3>
+<p>The dataset can be accessed from the following source:</p>
+<ul>
+<li><strong>Original source:</strong> <a href="https://www.kaggle.com/datasets/meongsuzacklee/california-covid-19-data">Kaggle repository</a></li>
+</ul>
+<p>The California COVID-19 dataset, found on Kaggle, covers the period from January 2020 to August 2023. It includes data from all counties in California, capturing COVID-19 cases and deaths, as well as population data for each county and the state as a whole. This dataset provides a comprehensive view of the pandemic’s impact across California, including how the number of cases and deaths varied over time and how these factors might influence the state’s prison composition.</p>
+</section>
+</section>
+</section>
+<section id="data-cleaning" class="level1">
+<h1>Data Cleaning</h1>
+<p><a href="scripts/load_and_clean_data.R">Link to the load_and_clean_data.R</a></p>
+<p>We cleaned our dataset with the following steps:</p>
+<section id="loading-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="loading-the-data">Loading the Data</h2>
+<ul>
+<li><strong>Loading the dataset</strong>: The dataset was read into R using the <code>read.csv()</code> function.</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"scripts/load_and_clean_data.R"</span>,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">echo =</span> <span class="cn">TRUE</span> <span class="co"># Use echo=FALSE or omit it to avoid code output  </span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"admissions_releases_states.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><strong>Checking the structure</strong>: We used the str() function to inspect the structure of the dataset.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>
-&gt; library(tidyverse)</code></pre>
+<pre><code>'data.frame':   1914 obs. of  16 variables:
+ $ date               : chr  "2015-02-01" "2015-03-01" "2015-04-01" "2015-05-01" ...
+ $ admissions_total   : int  1583 1580 1779 1821 1689 1871 1784 1623 1673 1780 ...
+ $ admissions_white   : int  600 615 706 730 704 758 760 659 673 734 ...
+ $ admissions_black   : int  193 189 235 260 215 223 206 177 236 205 ...
+ $ admissions_hispanic: num  633 640 701 669 618 738 670 629 636 696 ...
+ $ admissions_amerind : num  130 114 115 125 129 121 119 123 102 110 ...
+ $ admissions_asian   : num  6 3 4 8 0 5 6 8 8 10 ...
+ $ admissions_other   : num  21 19 18 29 23 26 23 27 18 25 ...
+ $ releases_total     : int  1649 1559 1693 1659 1570 1718 1637 1665 1653 1616 ...
+ $ releases_white     : int  653 644 703 685 651 673 661 659 673 648 ...
+ $ releases_black     : int  194 169 206 193 174 224 221 198 188 202 ...
+ $ releases_hispanic  : num  688 610 657 616 603 662 626 653 641 630 ...
+ $ releases_amerind   : num  85 111 93 136 111 132 107 120 123 108 ...
+ $ releases_asian     : num  7 6 5 3 7 5 4 9 4 5 ...
+ $ releases_other     : num  22 19 29 26 24 22 18 26 24 23 ...
+ $ state              : chr  "Arizona" "Arizona" "Arizona" "Arizona" ...</code></pre>
+</div>
+</div>
+</section>
+<section id="cleaning-steps" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-steps">Cleaning Steps</h2>
+<ol type="1">
+<li><strong>Date Conversion</strong></li>
+</ol>
+<p>We converted the date column from character format to Date format for easier temporal analysis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(df<span class="sc">$</span>date, <span class="at">format =</span> <span class="st">"%Y-%m-%d"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li><strong>Variable Renaming</strong></li>
+</ol>
+<p>To improve readability, variable names were renamed using the rename() function from dplyr.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.4.2</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
 <pre><code>
-&gt; loan_data &lt;- read_csv(here::here("dataset", "loan_refusal.csv"))</code></pre>
+Attaching package: 'dplyr'</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Rows: 20 Columns: 5
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (1): bank
-dbl (4): min, white, himin, hiwhite
+<pre><code>The following objects are masked from 'package:stats':
 
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+    filter, lag</code></pre>
 </div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Date =</span> date,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Admissions =</span> admissions_total,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">White_Admissions =</span> admissions_white,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Black_Admissions =</span> admissions_black,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Hispanic_Admissions =</span> admissions_hispanic,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">AmericanIndian_Admissions =</span> admissions_amerind,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">Asian_Admissions =</span> admissions_asian,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Other_Admissions =</span> admissions_other,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Releases =</span> releases_total,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">White_Releases =</span> releases_white,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Black_Releases =</span> releases_black,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Hispanic_Releases =</span> releases_hispanic,</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">AmericanIndian_Releases =</span> releases_amerind,</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">Asian_Releases =</span> releases_asian,</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">Other_Releases =</span> releases_other,</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">State =</span> state</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li><strong>Handling Missing Values</strong></li>
+</ol>
+<p>Missing values were identified and summarized using the sapply() function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>missing_values <span class="ot">&lt;-</span> <span class="fu">sapply</span>(data, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(missing_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>
-&gt; loan_data_clean &lt;- pivot_longer(loan_data, 2:5, names_to = "group", 
-+     values_to = "refusal_rate")
-
-&gt; write_rds(loan_data_clean, file = here::here("dataset", 
-+     "loan_refusal_clean.rds"))</code></pre>
+<pre><code>                     Date          Total_Admissions          White_Admissions 
+                        0                         0                         0 
+         Black_Admissions       Hispanic_Admissions AmericanIndian_Admissions 
+                        0                         0                         0 
+         Asian_Admissions          Other_Admissions            Total_Releases 
+                        0                         0                         0 
+           White_Releases            Black_Releases         Hispanic_Releases 
+                        0                         0                         0 
+  AmericanIndian_Releases            Asian_Releases            Other_Releases 
+                        0                         0                         0 
+                    State 
+                        0 </code></pre>
 </div>
 </div>
-<p>You should never use absolute paths (eg. <code>/Users/danielsussman/path/to/project/</code> or <code>C:\MA415\\Final_Project\</code>).</p>
-<p>You might consider using the <code>here</code> function from the <a href="https://here.r-lib.org/articles/here.html"><code>here</code> package</a> to avoid path problems.</p>
-</section>
-<section id="load-and-clean-data-script" class="level3">
-<h3 class="anchored" data-anchor-id="load-and-clean-data-script">Load and clean data script</h3>
-<p>The idea behind this file is that someone coming to your website could largely replicate your analyses after running this script on the original data sets to clean them. This file might create a derivative data set that you then use for your subsequent analysis. Note that you don’t need to run this script from every post/page. Instead, you can load in the results of this script, which could be plain text files or <code>.RData</code> files. In your data page you’ll describe how these results were created. If you have a very large data set, you might save smaller data sets that you can use for exploration purposes. To link to this file, you can use <code>[cleaning script](/scripts/load_and_clean_data.R)</code> wich appears as <a href="./scripts/load_and_clean_data.R">cleaning script</a>.</p>
-<hr>
-</section>
+<ol start="4" type="1">
+<li><strong>Removing Duplicate Rows</strong></li>
+</ol>
+<p>We used the distinct() function to remove duplicate rows and ensure data uniqueness.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li><strong>Summarizing Key</strong></li>
+</ol>
+<p>We calculated total admissions and releases by race for the entire dataset using the summarise() function</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>admissions_totals <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_White_Admissions =</span> <span class="fu">sum</span>(White_Admissions, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Black_Admissions =</span> <span class="fu">sum</span>(Black_Admissions, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Hispanic_Admissions =</span> <span class="fu">sum</span>(Hispanic_Admissions, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_AmericanIndian_Admissions =</span> <span class="fu">sum</span>(AmericanIndian_Admissions, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Asian_Admissions =</span> <span class="fu">sum</span>(Asian_Admissions, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Other_Admissions =</span> <span class="fu">sum</span>(Other_Admissions, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Similarly, we summarized total releases:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>releases_totals <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_White_Releases =</span> <span class="fu">sum</span>(White_Releases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Black_Releases =</span> <span class="fu">sum</span>(Black_Releases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Hispanic_Releases =</span> <span class="fu">sum</span>(Hispanic_Releases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_AmericanIndian_Releases =</span> <span class="fu">sum</span>(AmericanIndian_Releases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Asian_Releases =</span> <span class="fu">sum</span>(Asian_Releases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Total_Other_Releases =</span> <span class="fu">sum</span>(Other_Releases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="6" type="1">
+<li><strong>Saving the Cleaned Data</strong></li>
+</ol>
+<p>The cleaned dataset was saved as an RDS file for efficient reuse in further analysis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(data, <span class="st">"dataset/cleaned_dataset.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="rubric-on-this-page" class="level2">
 <h2 class="anchored" data-anchor-id="rubric-on-this-page">Rubric: On this page</h2>
@@ -299,6 +427,7 @@ dbl (4): min, white, himin, hiwhite
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
