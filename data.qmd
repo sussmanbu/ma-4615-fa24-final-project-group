@@ -5,81 +5,136 @@ toc: true
 draft: false
 ---
 
-![](images/data-import-cheatsheet-thumbs.png)
+![](images/Data-Cover.png)
 
 # Data Background
 
-## Data Source
+## Data Sources
 
-### Data Set 1: Admissions and Releases 
+## Data Set 1: Prison Admissions and Releases
 The dataset can be accessed from the following sources:
- 
-- **Original source:** [Kaggle repository](https://www.kaggle.com/datasets/konradb/prison-population-in-the-us?select=populations_states.csv)
+
+- **Original source:** [Kaggle](https://www.kaggle.com/datasets/konradb/prison-population-in-the-us/data)
+
 - **Article discussing the dataset:** [Nature article](https://www.nature.com/articles/s41586-023-05980-2)
- 
-This dataset focuses on the U.S. prison population, specifically examining the effects of the COVID-19 pandemic on racial disparities in incarceration. Collected as part of the study “COVID-19 Amplified Racial Disparities in the US Criminal Legal System”, it includes data on prison admissions and releases, broken down by race, across various states. Despite an overall decrease in the prison population during the pandemic, the proportion of Black and Latino prisoners increased. The dataset was gathered to understand how the pandemic exacerbated racial inequalities in the criminal justice system. The data is available on Kaggle and was discussed in a Nature article. Our focus is on analyzing data from 2019 to 2022, especially the long-term trends in admissions and releases, and how these trends relate to the pandemic's impact on racial disparities.
- 
- 
-### Data Set 2: California Race Population 
-The dataset can be accessed from the following sources:
- 
-- **Original source:** [US Census Bureau](https://www2.census.gov/programs-surveys/popest/)
-- **Article discussing the dataset:** [USA Facts website](https://usafacts.org/data/topics/people-society/population-and-demographics/our-changing-population/state/california/?endDate=2020-01-01&startDate=2019-01-01)  
- 
-This dataset, found on the USA Facts website, uses data from the US Census Bureau and provides insights into California's racial and ethnic demographics throughout the years. It helps us understand how the state’s population has shifted over time, particularly focusing on changes in the population size of different racial groups. Notably, in 2021, the largest racial or ethnic group in California was Hispanic/Latino, with a population of 15.7 million. Between 2019 and 2021, the Hispanic/Latino population saw the most growth, increasing by 190,640 individuals, from 15.5 million in 2019 to 15.7 million in 2021. The dataset categorizes the population by race—White, Black, Hispanic, American Indian, Asian, and Other—allowing for a comparison across the different groups. This data provides valuable context for understanding demographic trends and shifts in California during this period.
- 
- 
-### Data Set 3: California Monthly Admissions and Releases 
+
+This dataset focuses on the U.S. prison population, specifically examining the effects of the COVID-19 pandemic on racial disparities in incarceration. Collected as part of the study “COVID-19 Amplified Racial Disparities in the US Criminal Legal System”, it includes data on prison admissions and releases, broken down by race, across various states. Despite an overall decrease in the prison population during the pandemic, the proportion of Black and Hispanic prisoners increased. The dataset was gathered to understand how the pandemic worsened racial inequalities in the criminal justice system. The data is available on Kaggle and was discussed in a Nature article. **This is the main dataset we are focusing on for our project.** Our focus is on analyzing data from 2019 to the end of 2021, especially the long-term trends in admissions and releases, and how these trends relate to the pandemic's impact on racial disparities.
+The data files contain information about monthly prison admissions and releases in the USA, categorized by race and state. Below is a description of the variables:
+
+## Key Variables
+
+- **Date**: Indicates the month and year of the recorded data.
+
+- **State**: Identifies the state to which the data corresponds.
+
+## Admissions Data
+These variables describe the number of people admitted to prison during the month:
+- **admissions_total**: Total admissions across all racial groups.
+
+- **admissions_white**: Number of white individuals admitted.
+
+- **admissions_black**: Number of black individuals admitted.
+
+- **admissions_asian**: Number of Asian individuals admitted.
+
+- **admissions_hispanic**: Number of Hispanic individuals admitted.
+
+- **admissions_amerind**: Number of American Indian individuals admitted.
+
+- **admissions_other**: Number of individuals from other or combined racial groups admitted.
+
+## Releases Data
+These variables describe the number of people released from prison during the month:
+
+- **releases_total**: Total releases across all racial groups.
+
+- **releases_white**: Number of white individuals released.
+
+- **releases_black**: Number of black individuals released.
+
+- **releases_asian**: Number of Asian individuals released.
+
+- **releases_hispanic**: Number of Hispanic individuals released.
+
+- **releases_amerind**: Number of American Indian individuals released.
+
+- **releases_other**: Number of individuals from other or combined racial groups released.
+
+
+## Data Set 2: COVID-19 Cases and Deaths
+
 The dataset can be accessed from the following source:
- 
+
+- **Original source:** [US Counties COVID-19 Dataset](https://www.kaggle.com/datasets/fireballbyedimyrnmom/us-counties-covid-19-dataset)
+
+- **Data source:** [New York Times COVID-19 Data](https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv)
+
+This dataset focuses on COVID-19 cases and deaths in the United States, sourced from the New York Times GitHub repository. It provides comprehensive data on the number of reported cases and deaths across all U.S. counties, with daily updates broken down by location and time. The dataset tracks the progression of the pandemic, starting from the first reported case on January 21, 2020, in Washington State. It offers valuable insights into the spread and impact of COVID-19 across different regions, enabling comparisons and trend analysis at both state and county levels. Our focus is on analyzing COVID-19 trends from 2020 to the present, particularly in relation to how these trends intersect with prison composition patterns and racial disparities.
+
+- **Date**: Specific date of the record.
+
+- **County**: Identifies the county to which the data corresponds.
+
+- **State**: Identifies the state to which the data corresponds.
+
+- **Cases**: Number of reported cases.
+
+- **Deaths**: Number of deaths due to COVID-19.
+
+## Data Set 3: California Monthly Admissions and Releases
+The dataset can be accessed from the following source:
 - **Original source:** [California Open Data Portal](https://data.ca.gov/dataset/monthly-admissions-and-releases)
- 
-This dataset, available on the California Open Data Portal, tracks the total number of individuals admitted to and released from CDCR custody on a monthly basis, starting from January 31, 2014, to the present. It includes monthly data on total admissions, total releases, and yearly net changes. The data is collected every month, allowing for an in-depth analysis of trends in the state's prison population over time. This dataset provides valuable insights into the dynamics of prison admissions and releases, helping to understand shifts in California’s incarceration rates.
- 
- 
-### Data Set 4: California COVID-19 Data 
-The dataset can be accessed from the following source:
- 
-- **Original source:** [Kaggle repository](https://www.kaggle.com/datasets/meongsuzacklee/california-covid-19-data)
- 
-The California COVID-19 dataset, found on Kaggle, covers the period from January 2020 to August 2023. It includes data from all counties in California, capturing COVID-19 cases and deaths, as well as population data for each county and the state as a whole. This dataset provides a comprehensive view of the pandemic's impact across California, including how the number of cases and deaths varied over time and how these factors might influence the state's prison composition.
+This dataset, available on the California Open Data Portal, tracks the total number of individuals admitted to and released from CDCR custody on a monthly basis, starting from January 31, 2014, to the present. It includes monthly data on total admissions, total releases, and yearly net changes. The data is collected every month, allowing for an in-depth analysis of trends in the state’s prison population over time. We used this dataset to cross-analyze with our main dataset to ensure that the trends in prison admissions and releases align and reflect similar patterns across both datasets.
+
+- **Date**: The specific month and year for which the data was recorded, formatted as MM/DD/YYYY.
+
+- **TotalAdmissions**: The total number of individuals admitted to CDCR custody during the specified month.
+
+- **TotalReleases**: The total number of individuals released from CDCR custody during the specified month.
+
+- **YearlyNetChange**: The net change in the CDCR prison population on a yearly basis as of the specified month.
+
+## Another reference: California Race Population
+- **Original source:** [US Census Bureau](https://www2.census.gov/programs-surveys/popest/)
+- **Article discussing the dataset:** [USA Facts website](https://usafacts.org/data/topics/people-society/population-and-demographics/our-changing-population/state/california/?endDate=2020-01-01\&startDate=2019-01-01)
+This reference, found on the USA Facts website, uses data from the US Census Bureau and provides insights into California's racial and ethnic demographics throughout the years. It helps us understand how the state’s population has shifted over time, particularly focusing on changes in the population size of different racial groups. Notably, in 2021, the largest racial or ethnic group in California was Hispanic/Latino, with a population of 15.7 million. Between 2019 and 2021, the Hispanic/Latino population saw the most growth, increasing by 190,640 individuals, from 15.5 million in 2019 to 15.7 million in 2021. The reference categorizes the population by race—White, Black, Hispanic, American Indian, Asian, and Other—allowing for a comparison across the different groups. This data provides valuable context for understanding demographic trends and shifts in California during this period.
+This analysis is based on a pie chart depicting California's racial and ethnic demographics from 2019 to 2021, rather than a full dataset. The chart highlights the shifts in the state's population across various racial groups, showing that in 2021, the largest racial or ethnic group was Hispanic/Latino, with 15.7 million individuals. Between 2019 and 2021, the Hispanic/Latino population experienced the most growth, increasing by 190,640 people, from 15.5 million in 2019 to 15.7 million in 2021. The chart categorizes the population into six racial groups: White, Black, Hispanic, American Indian, Asian, and Other, offering a visual comparison of these groups over the two-year period.
+
+**How This Was Used in Analysis:**
+We used this data to calculate proportions and compare racial compositions across three years. These insights allowed us to contextualize trends in prison admissions and releases relative to population demographics, ensuring a comprehensive understanding of racial disparities.
 
 # Data Cleaning
-
 [Link to the load_and_clean_data.R](scripts/load_and_clean_data.R)
 
 We cleaned our dataset with the following steps:
-
 ## Loading the Data
-
 - **Loading the dataset**: The dataset was read into R using the `read.csv()` function.
-
 ```{r}
 # Load the dataset
 library(readr)
 df <- read.csv("admissions_releases_states.csv")
 ```
-
 - **Checking the structure**: We used the str() function to inspect the structure of the dataset.
-
 ```{r}
 str(df)
 ```
 ## Cleaning Steps
-
 1. **Date Conversion**
-
 We converted the date column from character format to Date format for easier temporal analysis.
-
 ```{r}
 df$date <- as.Date(df$date, format = "%Y-%m-%d")
 ```
-
 2. **Variable Renaming**
-
 To improve readability, variable names were renamed using the rename() function from dplyr.
-
 ```{r}
+suppressPackageStartupMessages({
+  suppressWarnings({
+    library(dplyr)
+    library(ggplot2)
+    library(lubridate)
+    library(readr)
+  })
+})
 library(dplyr)
 data <- df %>%
   rename(
@@ -101,28 +156,19 @@ data <- df %>%
     State = state
   )
 ```
-
 3. **Handling Missing Values**
-
 Missing values were identified and summarized using the sapply() function.
-
 ```{r}
 missing_values <- sapply(data, function(x) sum(is.na(x)))
 print(missing_values)
 ```
-
 4. **Removing Duplicate Rows**
-
 We used the distinct() function to remove duplicate rows and ensure data uniqueness.
-
 ```{r}
 data <- data %>% distinct()
 ```
-
 5. **Summarizing Key**
-
 We calculated total admissions and releases by race for the entire dataset using the summarise() function
-
 ```{r}
 admissions_totals <- data %>%
   summarise(
@@ -134,9 +180,7 @@ admissions_totals <- data %>%
     Total_Other_Admissions = sum(Other_Admissions, na.rm = TRUE)
   )
 ```
-
 Similarly, we summarized total releases:
-
 ```{r}
 releases_totals <- data %>%
   summarise(
@@ -148,34 +192,141 @@ releases_totals <- data %>%
     Total_Other_Releases = sum(Other_Releases, na.rm = TRUE)
   )
 ```
-
 6. **Saving the Cleaned Data**
-
 The cleaned dataset was saved as an RDS file for efficient reuse in further analysis.
-
 ```{r}
 saveRDS(data, "dataset/cleaned_dataset.rds")
 ```
 
 
+## Steps for Cleaning and Aggregating COVID Data:
 
+To integrate this dataset into our analysis, we utilized the following process, consistent with Blog Post 7:
 
+1. **Filtering Relevant States:**
 
-## Rubric: On this page
+```{r}
+suppressPackageStartupMessages({
+  suppressWarnings({
+    library(dplyr)
+    library(ggplot2)
+    library(lubridate)
+    library(readr)
+  })
+})
 
-You will
+# Libraries Used in the Project
+# Data Manipulation
+library(dplyr)       # For data manipulation: filtering, renaming, summarizing, grouping
+library(tidyr)       # For reshaping and tidying datasets
+# Data Reading and Writing
+library(readr)       # For reading and writing datasets efficiently
+# Date Handling
+library(lubridate)   # For handling and converting date formats
+# Visualization
+library(ggplot2)     # For creating visualizations like charts and graphs
+# String Manipulation
+library(stringr)     # For handling and manipulating string variables
+# Base R
+# Utilized for foundational operations like inspecting dataset structures and handling missing values
+states_to_keep <- c("Arizona", "Maine", "Washington", "Wisconsin", "West Virginia","Utah", "Texas", "Oregon", "Nebraska", "Montana", "Massachusetts", "Kentucky", "Kansas", "Iowa", "Illinois", "Idaho", "Colorado", "California")
 
-* Describe where/how to find data.
-  * You must include a link to the original data source(s). Make sure to provide attribution to those who collected the data.
-  * Why was the data collected/curated? Who put it together? (This is important, if you don't know why it was collected then that might not be a good dataset to look at.
-* Describe the different data files used and what each variable means. 
-  * If you have many variables then only describe the most relevant ones and summarize the rest.
-* Describe any cleaning you had to do for your data.
-  * You *must* include a link to your `load_and_clean_data.R` file.
-  * Rrename variables and recode factors to make data more clear.
-  * Also, describe any additional R packages you used outside of those covered in class.
-  * Describe and show code for how you combined multiple data files and any cleaning that was necessary for that.
-  * Some repetition of what you do in your `load_and_clean_data.R` file is fine and encouraged if it helps explain what you did.
-* Organization, clarity, cleanliness of the page
-  * Make sure to remove excessive warnings, use clean easy-to-read code (without side scrolling), organize with sections, use bullets and other organization tools, etc.
-  * This page should be self-contained.
+nyt_data <- read.csv("dataset/us-counties.csv", stringsAsFactors = FALSE)
+nyt_data$date <- as.Date(nyt_data$date)
+nyt_data_filtered <- nyt_data %>%
+  filter(state %in% states_to_keep)
+```
+
+2. **Aggregating Data by State and Month:**
+
+```{r}
+monthly_cumulative <- nyt_data_filtered %>%
+  mutate(year_month = floor_date(date, "month")) %>%
+  group_by(state, county, year_month) %>%
+  summarise(
+    max_cases = max(cases, na.rm = TRUE),
+    max_deaths = max(deaths, na.rm = TRUE), .groups = "drop") 
+```
+
+3. **Calculating Monthly Increments:**
+
+```{r}
+monthly_increments <- monthly_cumulative %>%
+  arrange(state, county, year_month) %>%
+  group_by(state, county) %>%
+  mutate(
+    monthly_new_cases = max_cases - lag(max_cases, 1),
+    monthly_new_deaths = max_deaths - lag(max_deaths, 1)) %>%
+  ungroup()
+monthly_increments$monthly_new_cases[is.na(monthly_increments$monthly_new_cases)] <-
+  monthly_increments$max_cases[is.na(monthly_increments$monthly_new_cases)]
+monthly_increments$monthly_new_deaths[is.na(monthly_increments$monthly_new_deaths)] <-
+  monthly_increments$max_deaths[is.na(monthly_increments$monthly_new_deaths)]
+```
+
+4. **Summarizing Monthly Totals:**
+
+```{r}
+monthly_covid <- monthly_increments %>%
+  group_by(year_month) %>%
+  summarise(
+    total_monthly_cases = sum(monthly_new_cases, na.rm = TRUE),
+    total_monthly_deaths = sum(monthly_new_deaths, na.rm = TRUE),
+    .groups = "drop")
+```
+
+5. **Merging with Prison Data:**
+
+```{r}
+data <- readRDS("dataset/cleaned_dataset.rds")
+data$date <- as.Date(data$Date)
+data_filtered <- data %>%
+  filter(State %in% states_to_keep,
+         date >= as.Date("2019-01-01") & date < as.Date("2022-01-01"))
+admissions_monthly <- data_filtered %>%
+  mutate(year_month = floor_date(date, unit = "month")) %>%
+  group_by(year_month) %>%
+  summarise(
+    monthly_admissions = sum(Total_Admissions, na.rm = TRUE),
+    monthly_releases = sum(Total_Releases, na.rm = TRUE),
+    .groups = "drop")
+all_months <- seq.Date(from = as.Date("2019-01-01"), to = as.Date("2021-12-01"), by = "month")
+all_months_df <- data.frame(year_month = all_months)
+model_data <- all_months_df %>%
+  full_join(monthly_covid, by = "year_month") %>%
+  full_join(admissions_monthly, by = "year_month") %>%
+  filter(year_month < as.Date("2022-01-01"))
+model_data <- model_data %>%
+  mutate(
+    total_monthly_cases = ifelse(is.na(total_monthly_cases), 0, total_monthly_cases),
+    total_monthly_deaths = ifelse(is.na(total_monthly_deaths), 0, total_monthly_deaths),
+    monthly_admissions = ifelse(is.na(monthly_admissions), 0, monthly_admissions),
+    monthly_releases = ifelse(is.na(monthly_releases), 0, monthly_releases))
+```
+
+# Libraries Used in the Project
+ 
+The project leveraged several R libraries to perform data loading, cleaning, manipulation, and visualization. Below is the list of libraries and their purposes:
+ 
+1. **dplyr**: 
+   - Used for data manipulation tasks such as filtering, renaming variables, summarizing, grouping, and removing duplicates.
+ 
+2. **readr**: 
+   - Utilized for reading and writing datasets efficiently, e.g., `read.csv()` and `write.csv()`.
+ 
+3. **lubridate**: 
+   - Used for handling and converting date formats to enable temporal analysis.
+ 
+4. **tidyr**:
+   - Likely applied for reshaping and tidying datasets, although not explicitly mentioned in the code excerpts.
+ 
+5. **ggplot2**:
+   - Used for creating visualizations like charts and graphs to illustrate trends in the data.
+ 
+6. **stringr**:
+   - Possibly employed for string manipulation, though specific usages are not detailed.
+ 
+7. **base R**:
+   - Applied for foundational operations like inspecting dataset structures (`str()`) and identifying missing values using `sapply()`.
+ 
+These libraries were crucial for ensuring efficient and effective data analysis throughout the project.
