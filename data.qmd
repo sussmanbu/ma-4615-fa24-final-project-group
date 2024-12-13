@@ -25,10 +25,13 @@ The data files contain information about monthly prison admissions and releases 
 
 - **Date**: Indicates the month and year of the recorded data.
 
-- **State**: Identifies the state to which the data corresponds.
+- **State**: Identifies the state to which the data corresponds.  
+  This dataset includes data from 18 states:  
+  Arizona, Maine, Washington, Wisconsin, West Virginia, Utah, Texas, Oregon, Nebraska, Montana, Massachusetts, Kentucky, Kansas, Iowa, Illinois, Idaho, Colorado, and California.
 
 ## Admissions Data
 These variables describe the number of people admitted to prison during the month:
+
 - **admissions_total**: Total admissions across all racial groups.
 
 - **admissions_white**: Number of white individuals admitted.
@@ -83,7 +86,9 @@ This dataset focuses on COVID-19 cases and deaths in the United States, sourced 
 
 ## Data Set 3: California Monthly Admissions and Releases
 The dataset can be accessed from the following source:
+
 - **Original source:** [California Open Data Portal](https://data.ca.gov/dataset/monthly-admissions-and-releases)
+
 This dataset, available on the California Open Data Portal, tracks the total number of individuals admitted to and released from CDCR custody on a monthly basis, starting from January 31, 2014, to the present. It includes monthly data on total admissions, total releases, and yearly net changes. The data is collected every month, allowing for an in-depth analysis of trends in the state’s prison population over time. We used this dataset to cross-analyze with our main dataset to ensure that the trends in prison admissions and releases align and reflect similar patterns across both datasets.
 
 - **Date**: The specific month and year for which the data was recorded, formatted as MM/DD/YYYY.
@@ -97,6 +102,7 @@ This dataset, available on the California Open Data Portal, tracks the total num
 ## Another reference: California Race Population
 - **Original source:** [US Census Bureau](https://www2.census.gov/programs-surveys/popest/)
 - **Article discussing the dataset:** [USA Facts website](https://usafacts.org/data/topics/people-society/population-and-demographics/our-changing-population/state/california/?endDate=2020-01-01\&startDate=2019-01-01)
+
 This reference, found on the USA Facts website, uses data from the US Census Bureau and provides insights into California's racial and ethnic demographics throughout the years. It helps us understand how the state’s population has shifted over time, particularly focusing on changes in the population size of different racial groups. Notably, in 2021, the largest racial or ethnic group in California was Hispanic/Latino, with a population of 15.7 million. Between 2019 and 2021, the Hispanic/Latino population saw the most growth, increasing by 190,640 individuals, from 15.5 million in 2019 to 15.7 million in 2021. The reference categorizes the population by race—White, Black, Hispanic, American Indian, Asian, and Other—allowing for a comparison across the different groups. This data provides valuable context for understanding demographic trends and shifts in California during this period.
 This analysis is based on a pie chart depicting California's racial and ethnic demographics from 2019 to 2021, rather than a full dataset. The chart highlights the shifts in the state's population across various racial groups, showing that in 2021, the largest racial or ethnic group was Hispanic/Latino, with 15.7 million individuals. Between 2019 and 2021, the Hispanic/Latino population experienced the most growth, increasing by 190,640 people, from 15.5 million in 2019 to 15.7 million in 2021. The chart categorizes the population into six racial groups: White, Black, Hispanic, American Indian, Asian, and Other, offering a visual comparison of these groups over the two-year period.
 
@@ -107,6 +113,7 @@ We used this data to calculate proportions and compare racial compositions acros
 [Link to the load_and_clean_data.R](scripts/load_and_clean_data.R)
 
 We cleaned our dataset with the following steps:
+
 ## Loading the Data
 - **Loading the dataset**: The dataset was read into R using the `read.csv()` function.
 ```{r}
