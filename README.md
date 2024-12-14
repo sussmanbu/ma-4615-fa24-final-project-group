@@ -1,2 +1,2 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/R5KvOQwo)
 # ma4615-final-project-quarto
+Here is the link for the zoom recording of our presentation: https://drive.google.com/file/d/1Ee9cdcs08nhdbRb6lgWZqn6gJMGMXqFJ/view?usp=drive_link
